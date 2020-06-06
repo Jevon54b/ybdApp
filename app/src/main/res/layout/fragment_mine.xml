@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	android:orientation="vertical"
+	android:id="@+id/container"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent">
+
+	<de.hdodenhof.circleimageview.CircleImageView
+		android:layout_centerHorizontal="true"
+		android:layout_alignParentTop="true"
+		android:layout_marginTop="24dp"
+		android:id="@+id/photoImg"
+		android:layout_width="120dp"
+		android:layout_height="120dp"
+		android:src="@mipmap/img_user_photo"/>
+
+	<TextView
+		android:id="@+id/nickText"
+		android:layout_below="@id/photoImg"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_centerHorizontal="true"
+		android:layout_marginTop="18dp"
+		android:text="生病的木大木大"
+		android:textSize="16sp"/>
+
+	<ImageView
+		android:layout_width="292dp"
+		android:layout_height="237dp"
+		android:layout_alignParentBottom="true"
+		android:layout_marginBottom="121dp"
+		android:src="@mipmap/img_mine_back2"/>
+
+	<ImageView
+		android:layout_width="122dp"
+		android:layout_height="214dp"
+		android:layout_alignParentBottom="true"
+		android:layout_alignParentRight="true"
+		android:layout_marginBottom="-54dp"
+		android:src="@mipmap/img_mine_back1"/>
+	
+	<com.google.android.material.card.MaterialCardView
+		android:background="#fff"
+		android:layout_width="359dp"
+		android:layout_height="367dp"
+		android:layout_marginBottom="-20dp"
+		android:layout_centerHorizontal="true"
+		android:layout_alignParentBottom="true"
+		app:cardCornerRadius="20dp"
+		android:elevation="8dp">
+
+		<LinearLayout
+			android:layout_gravity="center_horizontal"
+			android:orientation="vertical"
+			android:layout_width="291dp"
+			android:layout_height="347dp">
+			<LinearLayout
+				android:orientation="horizontal"
+				android:layout_width="match_parent"
+				android:layout_height="0dp"
+				android:layout_weight="1">
+				<ImageView
+					android:layout_marginStart="20dp"
+					android:layout_width="24dp"
+					android:layout_height="24dp"
+					android:src="@mipmap/ic_myorder"
+					android:layout_gravity="center_vertical"/>
+				<TextView
+					android:layout_marginStart="60dp"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:layout_gravity="center_vertical"
+					android:text="我的订单"
+					android:textSize="18sp"/>
+			</LinearLayout>
+
+			<View
+				android:background="@color/colorShadowGray"
+				android:layout_width="match_parent"
+				android:layout_height="1px"/>
+
+			<LinearLayout
+				android:orientation="horizontal"
+				android:layout_width="match_parent"
+				android:layout_height="0dp"
+				android:layout_weight="1">
+
+				<ImageView
+					android:layout_marginStart="20dp"
+					android:layout_width="24dp"
+					android:layout_height="27dp"
+					android:src="@mipmap/ic_address_check"
+					android:layout_gravity="center_vertical"/>
+				<TextView
+					android:layout_marginStart="60dp"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:layout_gravity="center_vertical"
+					android:text="收货地址"
+					android:textSize="18sp"/>
+			</LinearLayout>
+
+			<View
+				android:background="@color/colorShadowGray"
+				android:layout_width="match_parent"
+				android:layout_height="1px"/>
+
+
+			<LinearLayout
+				android:orientation="horizontal"
+				android:layout_width="match_parent"
+				android:layout_height="0dp"
+				android:layout_weight="1">
+
+				<ImageView
+					android:layout_marginStart="20dp"
+					android:layout_width="24dp"
+					android:layout_height="24dp"
+					android:src="@mipmap/ic_send_comment"
+					android:layout_gravity="center_vertical"/>
+				<TextView
+					android:layout_marginStart="60dp"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:layout_gravity="center_vertical"
+					android:text="我的评论"
+					android:textSize="18sp"/>
+			</LinearLayout>
+
+			<View
+				android:background="@color/colorShadowGray"
+				android:layout_width="match_parent"
+				android:layout_height="1px"/>
+
+
+			<LinearLayout
+				android:orientation="horizontal"
+				android:layout_width="match_parent"
+				android:layout_height="0dp"
+				android:layout_weight="1">
+				<ImageView
+					android:layout_marginStart="20dp"
+					android:layout_width="24dp"
+					android:layout_height="24dp"
+					android:src="@mipmap/ic_product"
+					android:layout_gravity="center_vertical"/>
+				<TextView
+					android:layout_marginStart="60dp"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:layout_gravity="center_vertical"
+					android:text="客服咨询"
+					android:textSize="18sp"/>
+			</LinearLayout>
+
+			<View
+				android:background="@color/colorShadowGray"
+				android:layout_width="match_parent"
+				android:layout_height="1px"/>
+
+
+			<LinearLayout
+				android:orientation="horizontal"
+				android:layout_width="match_parent"
+				android:layout_height="0dp"
+				android:layout_weight="1">
+				<ImageView
+					android:layout_marginStart="20dp"
+					android:layout_width="24dp"
+					android:layout_height="24dp"
+					android:src="@mipmap/ic_setting"
+					android:layout_gravity="center_vertical"/>
+				<TextView
+					android:layout_marginStart="60dp"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:layout_gravity="center_vertical"
+					android:text="设置"
+					android:textSize="18sp"/>
+			</LinearLayout>
+
+		</LinearLayout>
+
+
+	</com.google.android.material.card.MaterialCardView>
+
+</RelativeLayout>

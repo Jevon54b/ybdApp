@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto">
+	<ScrollView
+		android:orientation="vertical"
+		android:layout_width="match_parent"
+		android:layout_height="0dp"
+		android:layout_alignParentTop="true"
+		android:layout_above="@id/layout3">
+		<LinearLayout
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:orientation="vertical">
+
+			<TextView
+				android:layout_marginTop="6dp"
+				android:layout_marginStart="19dp"
+				android:layout_width="358dp"
+				android:layout_height="wrap_content"
+				android:text="标题"
+				android:textColor="@color/colorWordBlack"
+				android:textSize="24sp"
+				/>
+
+			<LinearLayout
+				android:layout_marginTop="19dp"
+				android:layout_marginStart="19dp"
+				android:orientation="horizontal"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content">
+
+				<de.hdodenhof.circleimageview.CircleImageView
+					android:id="@+id/authorImg"
+					android:layout_width="36dp"
+					android:layout_height="36dp"
+					android:src="@mipmap/p0"/>
+				<RelativeLayout
+					android:layout_marginStart="8dp"
+					android:layout_width="wrap_content"
+					android:layout_height="match_parent">
+					<TextView
+						android:id="@+id/authorNameText"
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:text="吴医生"
+						android:textSize="12sp"
+						android:textColor="@color/colorTextGray89"/>
+					<TextView
+						android:id="@+id/publishTimeText"
+						android:layout_alignParentBottom="true"
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:text="2020-11-12"
+						android:textSize="12sp"
+						android:textColor="@color/colorTextGray89"/>
+
+				</RelativeLayout>
+
+			</LinearLayout>
+
+			<TextView
+				android:id="@+id/contentText"
+				android:layout_marginTop="18dp"
+				android:layout_marginStart="19dp"
+				android:layout_width="371dp"
+				android:layout_height="wrap_content"
+				android:textSize="16sp"
+				android:textColor="@color/colorWordBlack"/>
+
+			<ImageView
+				android:id="@+id/articleImg"
+				android:layout_gravity="center_horizontal"
+				android:layout_marginTop="42dp"
+				android:layout_width="321dp"
+				android:layout_height="321dp" />
+
+			<com.google.android.material.card.MaterialCardView
+				android:layout_width="match_parent"
+				android:layout_height="12dp"
+				android:layout_marginTop="36dp"
+				android:background="@color/colorTextGrayEE"
+				app:cardCornerRadius="0dp"
+				app:cardElevation="2dp"/>
+
+			<TextView
+				android:background="@drawable/back_half_corner_label"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:paddingTop="8dp"
+				android:paddingBottom="8dp"
+				android:paddingStart="12dp"
+				android:paddingEnd="12dp"
+				android:text="评论"
+				android:textColor="#fff"
+				android:textSize="14sp"/>
+
+			<RelativeLayout
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content">
+				<androidx.recyclerview.widget.RecyclerView
+					android:id="@+id/recyclerView"
+					android:layout_width="match_parent"
+					android:layout_height="match_parent">
+				</androidx.recyclerview.widget.RecyclerView>
+			</RelativeLayout>
+		</LinearLayout>
+	</ScrollView>
+
+	<LinearLayout
+		android:id="@+id/layout3"
+		android:layout_alignParentBottom="true"
+		android:orientation="horizontal"
+		android:layout_width="match_parent"
+		android:layout_height="54dp">
+		<TextView
+			android:id="@+id/addCommentText"
+			android:layout_marginStart="19dp"
+			android:paddingStart="11dp"
+			android:layout_gravity="center_vertical"
+			android:gravity="center_vertical"
+			android:layout_width="240dp"
+			android:layout_height="34dp"
+			android:text="发表评论..."
+			android:textSize="14sp"
+			android:textColor="#dcdcdc"
+			android:background="@drawable/back_comment_text"/>
+
+		<ImageView
+			android:layout_gravity="center_vertical"
+			android:src="@mipmap/ic_send_comment"
+			android:layout_width="16dp"
+			android:layout_height="18dp"
+			android:layout_marginStart="49dp"/>
+		<ImageView
+			android:layout_gravity="center_vertical"
+			android:src="@mipmap/ic_share"
+			android:layout_width="15dp"
+			android:layout_height="16dp"
+			android:layout_marginStart="55dp"/>
+	</LinearLayout>
+</RelativeLayout>

@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" 
+	android:orientation="vertical"
+	android:layout_width="match_parent" 
+	android:layout_height="match_parent"
+	android:background="#fff">
+	
+	<FrameLayout
+		android:layout_width="match_parent"
+		android:layout_height="40dp">
+		<TextView
+			android:id="@+id/payTimeText"
+			android:layout_marginStart="8dp"
+			android:layout_gravity="start|center_vertical"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:text="2020-05-27 13:13:27"
+			android:textSize="12sp"
+			android:textColor="@color/colorWordBlack"/>
+		<TextView
+			android:id="@+id/orderStateText"
+			android:layout_marginEnd="8dp"
+			android:layout_gravity="end|center_vertical"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:text="订单状态"
+			android:textSize="12sp"/>
+	</FrameLayout>
+
+	<View
+		android:layout_width="match_parent"
+		android:layout_height="1dp"
+		android:background="@color/colorShadowGray"/>
+
+	<androidx.recyclerview.widget.RecyclerView
+		android:id="@+id/medRecyclerView"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content">
+	</androidx.recyclerview.widget.RecyclerView>
+
+
+	<LinearLayout
+		android:orientation="horizontal"
+		android:layout_width="match_parent"
+		android:layout_height="36dp"
+		android:gravity="right|center_vertical"
+		>
+
+		<TextView
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:text="实付款:"
+			android:textSize="14sp"
+			android:textColor="@color/colorWordBlack"/>
+
+		<TextView
+			android:id="@+id/orderPriceText"
+			android:layout_marginEnd="12dp"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:text="￥59"
+			android:textSize="14sp"
+			android:textColor="@color/colorPrimaryDark"/>
+	</LinearLayout>
+
+	<View
+		android:layout_width="match_parent"
+		android:layout_height="1dp"
+		android:background="@color/colorShadowGray"/>
+
+	<LinearLayout
+		android:orientation="horizontal"
+		android:layout_width="match_parent"
+		android:layout_height="36dp"
+		android:gravity="right|center_vertical"
+		>
+
+		<Button
+			android:paddingStart="4dp"
+			android:paddingEnd="4dp"
+			android:layout_marginEnd="8dp"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:text="删除订单"
+			android:textSize="12sp"
+			android:textColor="@color/colorTextGray"
+			style="@style/GrayOutlineButton"/>
+
+		<Button
+			android:paddingStart="4dp"
+			android:paddingEnd="4dp"
+			android:layout_marginEnd="12dp"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:text="再次购买"
+			android:textSize="12sp"
+			android:textColor="@color/colorPrimaryDark"
+			style="@style/GreenOutlineButton"/>
+
+	</LinearLayout>
+
+</LinearLayout>

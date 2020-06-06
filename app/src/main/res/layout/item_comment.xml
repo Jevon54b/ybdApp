@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+	android:paddingTop="14dp"
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	android:orientation="horizontal"
+	android:layout_width="match_parent"
+	android:layout_height="wrap_content">
+
+	<de.hdodenhof.circleimageview.CircleImageView
+		android:layout_marginStart="19dp"
+		android:id="@+id/commenterImg"
+		android:layout_width="31dp"
+		android:layout_height="31dp"
+		android:src="@mipmap/p1"/>
+
+	<TextView
+		android:id="@+id/commenterNameText"
+		android:layout_toRightOf="@id/commenterImg"
+		android:layout_marginStart="8dp"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:text="commenter"
+		android:textColor="@color/colorTextGray6d"
+		android:textSize="14sp"/>
+
+	<TextView
+		android:id="@+id/commentTimeText"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_marginStart="8dp"
+		android:layout_alignBottom="@id/commenterNameText"
+		android:layout_toRightOf="@id/commenterNameText"
+		android:text="2019-12-01"
+		android:textColor="@color/colorTextGray89"
+		android:textSize="12sp"
+		/>
+
+	<TextView
+		android:id="@+id/commentText"
+		android:layout_width="288dp"
+		android:layout_margin="8dp"
+		android:layout_height="wrap_content"
+		android:layout_below="@id/commenterNameText"
+		android:layout_toRightOf="@id/commenterImg"
+		android:text="支持同行！作为同行，帮楼主补充一下。成人体液是由水、电解质、低分子有机化合物和蛋白质等组成，广泛分布在组织细胞内外，构成人体的内环境。其中细胞内液约占体重的40%，细胞外液占20% (其中血浆占5%，组织间液占15%)。水是机体物质代谢必不可少的物质，细胞必须从组织间液摄取营养，营养物质溶于水才能被充分吸收，物质代谢的中间产物和般终产物也必须通过组织间液运送和排除。"
+		android:textSize="14sp"
+		android:textColor="@color/colorWordBlack"/>
+
+
+
+</RelativeLayout>

@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	android:layout_marginStart="12dp"
+	android:layout_marginEnd="14dp"
+	android:layout_marginTop="8dp"
+	android:layout_marginBottom="8dp"
+	android:layout_width="match_parent"
+	android:layout_height="150dp"
+	app:cardCornerRadius="8dp"
+	app:cardElevation="8dp">
+
+	<RelativeLayout
+		android:layout_width="match_parent"
+		android:layout_height="match_parent">
+
+		<com.bingo.lib.CustomImageView
+			android:id="@+id/articleImg"
+			android:layout_centerVertical="true"
+			android:layout_marginStart="14dp"
+			android:layout_width="120dp"
+			android:layout_height="120dp"
+			android:src="@mipmap/p1"
+			app:shape_type="SHAPE_ROUND"
+			app:left_bottom_radiusX="20dp"
+			app:left_bottom_radiusY="20dp"
+			app:left_top_radiusX="20dp"
+			app:left_top_radiusY="20dp"
+			app:right_bottom_radiusX="20dp"
+			app:right_bottom_radiusY="20dp"
+			app:right_top_radiusX="20dp"
+			app:right_top_radiusY="20dp"
+			app:show_border="false"
+			/>
+
+		<TextView
+			android:id="@+id/articleTitleText"
+			android:layout_toRightOf="@id/articleImg"
+			android:layout_alignTop="@id/articleImg"
+			android:layout_marginStart="8dp"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:text="我是标题"
+			android:textSize="22sp"
+			android:textColor="@color/colorWordBlack" />
+
+		<TextView
+			android:id="@+id/authorNameText"
+			android:layout_toRightOf="@id/articleImg"
+			android:layout_below="@id/articleTitleText"
+			android:layout_marginStart="8dp"
+			android:layout_marginTop="4dp"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:text="我是作者"
+			android:textSize="12sp"
+			android:textColor="@color/colorWordBlack" />
+
+		<TextView
+			android:id="@+id/articleTimeText"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_toRightOf="@id/articleImg"
+			android:layout_alignBottom="@id/articleImg"
+			android:layout_marginStart="8dp"
+			android:text="时间"
+			android:textSize="12sp"/>
+
+		<LinearLayout
+			android:orientation="horizontal"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_alignBottom="@id/articleImg"
+			android:layout_alignParentRight="true"
+			android:layout_marginEnd="14dp"
+			android:gravity="center_vertical">
+			<ImageView
+				android:layout_width="16dp"
+				android:layout_height="16dp"
+				android:src="@mipmap/ic_see"
+				android:layout_marginEnd="4dp"/>
+
+			<TextView
+				android:id="@+id/visitNumText"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_marginEnd="8dp"
+				android:text="0"
+				android:textSize="12sp"
+				android:textColor="@color/colorPrimaryDark"/>
+
+			<ImageView
+				android:layout_width="16dp"
+				android:layout_height="16dp"
+				android:src="@mipmap/ic_comment"
+				android:layout_marginEnd="4dp"/>
+			<TextView
+				android:id="@+id/commentNumText"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:text="0"
+				android:textSize="12sp"
+				android:textColor="@color/colorPrimaryDark"/>
+
+		</LinearLayout>
+
+
+	</RelativeLayout>
+
+</com.google.android.material.card.MaterialCardView>

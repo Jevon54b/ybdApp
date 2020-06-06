@@ -1,0 +1,322 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent">
+<LinearLayout
+	android:orientation="vertical"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent">
+
+	<com.google.android.material.card.MaterialCardView
+		android:layout_gravity="center_horizontal"
+		android:layout_width="320dp"
+		android:layout_height="40dp"
+		android:layout_marginTop="8dp"
+		app:cardCornerRadius="12dp"
+		app:cardElevation="8dp">
+		<EditText
+			android:layout_width="match_parent"
+			android:layout_height="match_parent"
+			android:background="@drawable/back_search_edit"
+			android:drawableRight="@mipmap/ic_search"
+			android:drawablePadding="8dp"
+			android:paddingEnd="12dp"
+			android:paddingStart="12dp"
+			android:hint="搜索药品"/>
+	</com.google.android.material.card.MaterialCardView>
+
+
+	<com.google.android.material.card.MaterialCardView
+		android:layout_marginTop="12dp"
+		app:cardCornerRadius="12dp"
+		android:layout_gravity="center_horizontal"
+		android:layout_width="320dp"
+		android:layout_height="180dp"
+		app:cardElevation="8dp">
+		<com.youth.banner.Banner
+			android:id="@+id/banner"
+			android:layout_width="match_parent"
+			android:layout_height="match_parent"></com.youth.banner.Banner>
+	</com.google.android.material.card.MaterialCardView>
+	
+	<RelativeLayout
+		android:layout_gravity="center_horizontal"
+		android:layout_marginTop="24dp"
+		android:layout_width="320dp"
+		android:layout_height="wrap_content">
+		<LinearLayout
+			android:orientation="vertical"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content">
+			<ImageView
+				android:layout_gravity="center_horizontal"
+				android:layout_width="30dp"
+				android:layout_height="40dp"
+				android:src="@mipmap/ic_ear_check"/>
+			<TextView
+				android:layout_marginTop="8dp"
+				android:layout_gravity="center_horizontal"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:textSize="18sp"
+				android:text="感冒发烧"/>
+		</LinearLayout>
+
+
+		<LinearLayout
+			android:layout_centerHorizontal="true"
+			android:orientation="vertical"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content">
+			<ImageView
+				android:layout_gravity="center_horizontal"
+				android:layout_width="42dp"
+				android:layout_height="40dp"
+				android:src="@mipmap/ic_heart"/>
+			<TextView
+				android:layout_marginTop="8dp"
+				android:layout_gravity="center_horizontal"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:textSize="18sp"
+				android:text="咳嗽用药"/>
+		</LinearLayout>
+
+		<LinearLayout
+			android:layout_alignParentRight="true"
+			android:orientation="vertical"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content">
+			<ImageView
+				android:layout_gravity="center_horizontal"
+				android:layout_width="40dp"
+				android:layout_height="40dp"
+				android:src="@mipmap/ic_stomach_check"/>
+			<TextView
+				android:layout_marginTop="8dp"
+				android:layout_gravity="center_horizontal"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:textSize="18sp"
+				android:text="肠胃用药"/>
+		</LinearLayout>
+
+	</RelativeLayout>
+
+	<RelativeLayout
+		android:layout_gravity="center_horizontal"
+		android:layout_marginTop="24dp"
+		android:layout_width="320dp"
+		android:layout_height="wrap_content">
+		<LinearLayout
+			android:orientation="vertical"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content">
+			<ImageView
+				android:layout_gravity="center_horizontal"
+				android:layout_width="40dp"
+				android:layout_height="40dp"
+				android:src="@mipmap/ic_stomach"/>
+			<TextView
+				android:layout_marginTop="8dp"
+				android:layout_gravity="center_horizontal"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:textSize="18sp"
+				android:text="两性健康"/>
+		</LinearLayout>
+
+
+		<LinearLayout
+			android:layout_centerHorizontal="true"
+			android:orientation="vertical"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content">
+			<ImageView
+				android:layout_gravity="center_horizontal"
+				android:layout_width="42dp"
+				android:layout_height="40dp"
+				android:src="@mipmap/ic_brain_check"/>
+			<TextView
+				android:layout_marginTop="8dp"
+				android:layout_gravity="center_horizontal"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:textSize="18sp"
+				android:text="儿童用药"/>
+		</LinearLayout>
+
+		<LinearLayout
+			android:layout_alignParentRight="true"
+			android:orientation="vertical"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content">
+			<ImageView
+				android:layout_gravity="center_horizontal"
+				android:layout_width="30dp"
+				android:layout_height="40dp"
+				android:src="@mipmap/ic_ear"/>
+			<TextView
+				android:layout_marginTop="8dp"
+				android:layout_gravity="center_horizontal"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:textSize="18sp"
+				android:text="家庭常备"/>
+		</LinearLayout>
+
+	</RelativeLayout>
+
+	<RelativeLayout
+		android:layout_gravity="center_horizontal"
+		android:layout_marginTop="24dp"
+		android:layout_width="320dp"
+		android:layout_height="wrap_content">
+		<LinearLayout
+			android:orientation="vertical"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content">
+			<ImageView
+				android:layout_gravity="center_horizontal"
+				android:layout_width="30dp"
+				android:layout_height="40dp"
+				android:src="@mipmap/ic_ear_check"/>
+			<TextView
+				android:layout_marginTop="8dp"
+				android:layout_gravity="center_horizontal"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:textSize="18sp"
+				android:text="五官用药"/>
+		</LinearLayout>
+
+
+		<LinearLayout
+			android:layout_centerHorizontal="true"
+			android:orientation="vertical"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content">
+			<ImageView
+				android:layout_gravity="center_horizontal"
+				android:layout_width="42dp"
+				android:layout_height="40dp"
+				android:src="@mipmap/ic_brain"/>
+			<TextView
+				android:layout_marginTop="8dp"
+				android:layout_gravity="center_horizontal"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:textSize="18sp"
+				android:text="跌打扭伤"/>
+		</LinearLayout>
+
+		<LinearLayout
+			android:layout_alignParentRight="true"
+			android:orientation="vertical"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content">
+			<ImageView
+				android:layout_gravity="center_horizontal"
+				android:layout_width="42dp"
+				android:layout_height="40dp"
+				android:src="@mipmap/ic_heart_check"/>
+			<TextView
+				android:layout_marginTop="8dp"
+				android:layout_gravity="center_horizontal"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:textSize="18sp"
+				android:text="皮肤用药"/>
+		</LinearLayout>
+
+	</RelativeLayout>
+
+	<RelativeLayout
+		android:layout_gravity="center_horizontal"
+		android:layout_marginTop="24dp"
+		android:layout_width="320dp"
+		android:layout_height="wrap_content">
+		<LinearLayout
+			android:orientation="vertical"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content">
+			<ImageView
+				android:layout_gravity="center_horizontal"
+				android:layout_width="42dp"
+				android:layout_height="40dp"
+				android:src="@mipmap/ic_brain"/>
+			<TextView
+				android:layout_marginTop="8dp"
+				android:layout_gravity="center_horizontal"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:textSize="18sp"
+				android:text="滋补调养"/>
+		</LinearLayout>
+
+
+		<LinearLayout
+			android:layout_centerHorizontal="true"
+			android:orientation="vertical"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content">
+			<ImageView
+				android:layout_gravity="center_horizontal"
+				android:layout_width="42dp"
+				android:layout_height="40dp"
+				android:src="@mipmap/ic_heart_check"/>
+			<TextView
+				android:layout_marginTop="8dp"
+				android:layout_gravity="center_horizontal"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:textSize="18sp"
+				android:text="维矿补益"/>
+		</LinearLayout>
+
+		<LinearLayout
+			android:layout_alignParentRight="true"
+			android:orientation="vertical"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content">
+			<ImageView
+				android:layout_gravity="center_horizontal"
+				android:layout_width="40dp"
+				android:layout_height="40dp"
+				android:src="@mipmap/ic_stomach"/>
+			<TextView
+				android:layout_marginTop="8dp"
+				android:layout_gravity="center_horizontal"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:textSize="18sp"
+				android:text="处方用药"/>
+		</LinearLayout>
+
+	</RelativeLayout>
+
+	<TextView
+		android:layout_marginTop="18dp"
+		android:paddingStart="12dp"
+		android:paddingEnd="12dp"
+		android:paddingTop="8dp"
+		android:paddingBottom="8dp"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:text="热门推荐"
+		android:textSize="14sp"
+		android:textColor="#fff"
+		android:background="@drawable/back_half_corner_label"
+		/>
+
+	<androidx.recyclerview.widget.RecyclerView
+		android:id="@+id/recyclerView"
+		android:layout_marginTop="8dp"
+		android:layout_width="match_parent"
+		android:layout_height="585dp">
+	</androidx.recyclerview.widget.RecyclerView>
+
+
+</LinearLayout>
+</ScrollView>

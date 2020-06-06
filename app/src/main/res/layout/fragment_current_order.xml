@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	android:orientation="vertical"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:background="@color/colorBackGray">
+
+	<androidx.recyclerview.widget.RecyclerView
+		android:id="@+id/orderRecyclerView"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content">
+	</androidx.recyclerview.widget.RecyclerView>
+
+	<ImageView
+		android:id="@+id/noItemImg"
+		android:visibility="gone"
+		android:layout_width="241dp"
+		android:layout_height="189dp"
+		android:src="@mipmap/img_empty_tips"
+		android:layout_centerInParent="true"/>
+
+</RelativeLayout>

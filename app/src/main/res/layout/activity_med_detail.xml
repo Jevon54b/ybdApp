@@ -1,0 +1,442 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent">
+	<ScrollView
+		android:background="@color/colorBackGray"
+		android:layout_above="@id/layout4"
+		android:layout_width="match_parent"
+		android:layout_height="match_parent">
+
+		<RelativeLayout
+			android:layout_width="match_parent"
+			android:layout_height="match_parent">
+			
+			<View
+				android:background="@color/colorPrimary"
+				android:layout_width="match_parent"
+				android:layout_height="106dp"/>
+			
+			<ImageView
+				android:id="@+id/medImg"
+				android:layout_marginTop="8dp"
+				android:layout_centerHorizontal="true"
+				android:layout_width="381dp"
+				android:layout_height="378dp"
+				android:src="@mipmap/p6"/>
+
+			<RelativeLayout
+				android:id="@+id/layout5"
+				android:layout_below="@id/medImg"
+				android:layout_marginTop="10dp"
+				android:layout_centerHorizontal="true"
+				android:layout_width="381dp"
+				android:layout_height="125dp"
+				android:background="#fff">
+
+				<TextView
+					android:id="@+id/prescriptText"
+					android:paddingStart="7dp"
+					android:paddingEnd="8dp"
+					android:paddingTop="4dp"
+					android:paddingBottom="4dp"
+					android:layout_marginStart="13dp"
+					android:layout_marginTop="17dp"
+					android:background="@drawable/back_item_text2"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:text="非处方"
+					android:textSize="15sp"
+					android:textColor="@color/colorWordBlack"/>
+
+				<TextView
+					android:id="@+id/medNameText"
+					android:layout_toRightOf="@id/prescriptText"
+					android:layout_alignTop="@id/prescriptText"
+					android:layout_marginStart="11dp"
+					android:layout_marginTop="4dp"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:text="感冒灵"
+					android:textSize="15sp"
+					android:textColor="@color/colorWordBlack"/>
+				
+				<TextView
+					android:id="@+id/medPriceText"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:layout_below="@id/prescriptText"
+					android:layout_marginStart="16dp"
+					android:layout_marginTop="16dp"
+					android:text="￥19.8"
+					android:textColor="@color/colorHighRed"
+					android:textSize="18sp"
+					android:textStyle="bold"
+					/>
+
+				<TextView
+					android:id="@+id/medTypeText"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:layout_below="@id/medPriceText"
+					android:layout_marginTop="6dp"
+					android:layout_marginStart="17dp"
+					android:text="药品类型:感冒发烧"
+					android:textSize="12sp"/>
+
+				<TextView
+					android:id="@+id/medSalesNumText"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:layout_alignTop="@id/medTypeText"
+					android:layout_alignParentRight="true"
+					android:layout_marginEnd="20dp"
+					android:text="销量:0"
+					android:textSize="12sp"/>
+
+			</RelativeLayout>
+
+			<RelativeLayout
+				android:layout_width="381dp"
+				android:layout_height="wrap_content"
+				android:layout_below="@id/layout5"
+				android:layout_centerHorizontal="true"
+				android:layout_marginTop="9dp"
+				android:layout_marginEnd="12dp"
+				android:background="#fff"
+				android:paddingStart="16dp"
+				android:paddingEnd="20dp"
+				android:paddingBottom="12dp">
+
+				<TextView
+					android:id="@+id/text3"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:layout_marginStart="8dp"
+					android:layout_marginTop="14dp"
+					android:text="药品说明书"
+					android:textColor="@color/colorTextGray86"
+					android:textSize="14sp" />
+
+				<TextView
+					android:id="@+id/text4"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:layout_below="@id/text3"
+					android:layout_marginTop="14dp"
+					android:text="【通用名称】"
+					android:textColor="@color/colorWordBlack"
+					android:textSize="17sp" />
+
+				<TextView
+					android:id="@+id/normalNameText"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:layout_alignTop="@id/text4"
+					android:layout_toRightOf="@id/text4"
+					android:text="药名"
+					android:textColor="@color/colorWordBlack"
+					android:textSize="17sp" />
+
+				<TextView
+					android:id="@+id/goodsNameText"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:layout_below="@id/normalNameText"
+					android:layout_alignStart="@id/normalNameText"
+					android:layout_marginTop="8dp"
+					android:text="商用名称"
+					android:textColor="@color/colorWordBlack"
+					android:textSize="17sp" />
+
+				<TextView
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:layout_alignTop="@id/goodsNameText"
+					android:layout_toLeftOf="@id/goodsNameText"
+					android:text="【商用名称】"
+					android:textColor="@color/colorWordBlack"
+					android:textSize="17sp" />
+
+				<TextView
+					android:id="@+id/compositionText"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:layout_below="@id/goodsNameText"
+					android:layout_alignStart="@id/goodsNameText"
+					android:layout_marginTop="8dp"
+					android:text="组成成分"
+					android:textColor="@color/colorWordBlack"
+					android:textSize="17sp" />
+
+				<TextView
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:layout_alignTop="@id/compositionText"
+					android:layout_toLeftOf="@id/compositionText"
+					android:text="【药品成份】"
+					android:textColor="@color/colorWordBlack"
+					android:textSize="17sp" />
+
+				<TextView
+					android:id="@+id/avoidText"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:layout_below="@id/compositionText"
+					android:layout_alignStart="@id/compositionText"
+					android:layout_marginTop="8dp"
+					android:textColor="@color/colorWordBlack"
+					android:textSize="17sp" />
+
+				<TextView
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:layout_alignTop="@id/avoidText"
+					android:layout_toLeftOf="@id/avoidText"
+					android:text="【用药禁忌】"
+					android:textColor="@color/colorWordBlack"
+					android:textSize="17sp" />
+
+				<TextView
+					android:id="@+id/functionText"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:layout_below="@id/avoidText"
+					android:layout_alignStart="@id/avoidText"
+					android:layout_marginTop="8dp"
+					android:textColor="@color/colorWordBlack"
+					android:textSize="17sp" />
+
+				<TextView
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:layout_alignTop="@id/functionText"
+					android:layout_toLeftOf="@id/functionText"
+					android:text="【功能主治】"
+					android:textColor="@color/colorWordBlack"
+					android:textSize="17sp" />
+
+				<TextView
+					android:id="@+id/usageText"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:layout_below="@id/functionText"
+					android:layout_alignStart="@id/functionText"
+					android:layout_marginTop="8dp"
+					android:textColor="@color/colorWordBlack"
+					android:textSize="17sp" />
+
+				<TextView
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:layout_alignTop="@id/usageText"
+					android:layout_toLeftOf="@id/usageText"
+					android:text="【用法用量】"
+					android:textColor="@color/colorWordBlack"
+					android:textSize="17sp" />
+
+				<TextView
+					android:id="@+id/propertiesText"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:layout_below="@id/usageText"
+					android:layout_alignStart="@id/usageText"
+					android:layout_marginTop="8dp"
+					android:textColor="@color/colorWordBlack"
+					android:textSize="17sp" />
+
+				<TextView
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:layout_alignTop="@id/propertiesText"
+					android:layout_toLeftOf="@id/propertiesText"
+					android:text="【药品性状】"
+					android:textColor="@color/colorWordBlack"
+					android:textSize="17sp" />
+
+				<TextView
+					android:id="@+id/packingSizeText"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:layout_below="@id/propertiesText"
+					android:layout_alignStart="@id/propertiesText"
+					android:layout_marginTop="8dp"
+					android:textColor="@color/colorWordBlack"
+					android:textSize="17sp" />
+
+				<TextView
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:layout_alignTop="@id/packingSizeText"
+					android:layout_toLeftOf="@id/packingSizeText"
+					android:text="【包装规格】"
+					android:textColor="@color/colorWordBlack"
+					android:textSize="17sp" />
+
+
+				<TextView
+					android:id="@+id/adverseReactionText"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:layout_below="@id/packingSizeText"
+					android:layout_alignStart="@id/packingSizeText"
+					android:layout_marginTop="8dp"
+					android:textColor="@color/colorWordBlack"
+					android:textSize="17sp" />
+
+				<TextView
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:layout_alignTop="@id/adverseReactionText"
+					android:layout_toLeftOf="@id/adverseReactionText"
+					android:text="【不良反应】"
+					android:textColor="@color/colorWordBlack"
+					android:textSize="17sp" />
+
+				<TextView
+					android:id="@+id/storeConditionText"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:layout_below="@id/adverseReactionText"
+					android:layout_alignStart="@id/adverseReactionText"
+					android:layout_marginTop="8dp"
+					android:textColor="@color/colorWordBlack"
+					android:textSize="17sp" />
+
+				<TextView
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:layout_alignTop="@id/storeConditionText"
+					android:layout_toLeftOf="@id/storeConditionText"
+					android:text="【贮藏条件】"
+					android:textColor="@color/colorWordBlack"
+					android:textSize="17sp" />
+
+				<TextView
+					android:id="@+id/validTimeText"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:layout_below="@id/storeConditionText"
+					android:layout_alignStart="@id/storeConditionText"
+					android:layout_marginTop="8dp"
+					android:textColor="@color/colorWordBlack"
+					android:textSize="17sp" />
+
+				<TextView
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:layout_alignTop="@id/validTimeText"
+					android:layout_toLeftOf="@id/validTimeText"
+					android:text="【有效期限】"
+					android:textColor="@color/colorWordBlack"
+					android:textSize="17sp" />
+
+				<TextView
+					android:id="@+id/attentionsText"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:layout_below="@id/validTimeText"
+					android:layout_alignStart="@id/validTimeText"
+					android:layout_marginTop="8dp"
+					android:textColor="@color/colorWordBlack"
+					android:textSize="17sp" />
+
+				<TextView
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:layout_alignTop="@id/attentionsText"
+					android:layout_toLeftOf="@id/attentionsText"
+					android:text="【注意事项】"
+					android:textColor="@color/colorWordBlack"
+					android:textSize="17sp" />
+
+				<TextView
+					android:id="@+id/registerNumberText"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:layout_below="@id/attentionsText"
+					android:layout_alignStart="@id/attentionsText"
+					android:layout_marginTop="8dp"
+					android:textColor="@color/colorWordBlack"
+					android:textSize="17sp" />
+
+				<TextView
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:layout_alignTop="@id/registerNumberText"
+					android:layout_toLeftOf="@id/registerNumberText"
+					android:text="【批准文号】"
+					android:textColor="@color/colorWordBlack"
+					android:textSize="17sp" />
+
+				<TextView
+					android:id="@+id/manufacturerText"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:layout_below="@id/registerNumberText"
+					android:layout_alignStart="@id/registerNumberText"
+					android:layout_marginTop="8dp"
+					android:textColor="@color/colorWordBlack"
+					android:textSize="17sp" />
+
+				<TextView
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:layout_alignTop="@id/manufacturerText"
+					android:layout_toLeftOf="@id/manufacturerText"
+					android:text="【生产厂商】"
+					android:textColor="@color/colorWordBlack"
+					android:textSize="17sp" />
+
+			</RelativeLayout>
+
+
+
+		</RelativeLayout>
+
+	</ScrollView>
+	
+	<LinearLayout
+		android:id="@+id/layout4"
+		android:layout_alignParentBottom="true"
+		android:layout_width="match_parent"
+		android:layout_height="52dp"
+		android:orientation="horizontal">
+
+		<ImageView
+			android:layout_marginStart="18dp"
+			android:layout_marginEnd="16dp"
+			android:layout_gravity="center_vertical"
+			android:layout_width="25dp"
+			android:layout_height="37dp"
+			android:src="@mipmap/ic_kefu"/>
+		<ImageView
+			android:layout_marginStart="18dp"
+			android:layout_marginEnd="20dp"
+			android:layout_gravity="center_vertical"
+			android:layout_width="36dp"
+			android:layout_height="38dp"
+			android:src="@mipmap/ic_cart"/>
+
+		<TextView
+			android:gravity="center"
+			android:layout_width="0dp"
+			android:layout_weight="1"
+			android:layout_height="match_parent"
+			android:text="加入购物车"
+			android:background="@drawable/back_yellow_text"
+			android:textColor="#fff"
+			/>
+		<TextView
+			android:gravity="center"
+			android:layout_width="0dp"
+			android:layout_weight="1"
+			android:layout_height="match_parent"
+			android:background="@drawable/back_green_text"
+			android:text="立即购买"
+			android:textColor="#fff" />
+
+
+	</LinearLayout>
+	
+</RelativeLayout>

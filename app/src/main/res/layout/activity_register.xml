@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto">
+
+	<ImageView
+		android:layout_width="50dp"
+		android:layout_height="120dp"
+		android:layout_marginStart="8dp"
+		android:src="@mipmap/img_logo"
+		app:layout_constraintEnd_toEndOf="parent"
+		app:layout_constraintStart_toStartOf="parent"
+		app:layout_constraintTop_toTopOf="@+id/guideline" />
+
+
+	<androidx.constraintlayout.widget.Guideline
+		android:id="@+id/guideline"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:orientation="horizontal"
+		app:layout_constraintGuide_percent="0.04" />
+
+	<androidx.constraintlayout.widget.Guideline
+		android:id="@+id/guideline2"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:orientation="horizontal"
+		app:layout_constraintGuide_percent="0.28" />
+
+	<EditText
+		android:id="@+id/nickEdit"
+		android:layout_width="294dp"
+		android:layout_height="60dp"
+		android:layout_marginTop="18dp"
+		android:background="@drawable/back_input_edit"
+		android:drawableLeft="@mipmap/ic_user"
+		android:drawablePadding="12dp"
+		android:ems="10"
+		android:hint="昵称"
+		android:inputType="textPersonName"
+		android:paddingStart="28dp"
+		android:textColor="@color/colorInputGray"
+		android:textColorHint="@color/colorInputGray"
+		app:layout_constraintEnd_toEndOf="parent"
+		app:layout_constraintStart_toStartOf="parent"
+		app:layout_constraintTop_toTopOf="@+id/guideline2" />
+
+	<EditText
+		android:id="@+id/phoneEdit"
+		android:layout_width="294dp"
+		android:layout_height="60dp"
+		android:layout_marginTop="18dp"
+		android:background="@drawable/back_input_edit"
+		android:drawableLeft="@mipmap/ic_user"
+		android:drawablePadding="12dp"
+		android:ems="10"
+		android:hint="邮箱/手机号"
+		android:inputType="textPersonName"
+		android:paddingStart="28dp"
+		android:textColor="@color/colorInputGray"
+		android:textColorHint="@color/colorInputGray"
+		app:layout_constraintEnd_toEndOf="parent"
+		app:layout_constraintStart_toStartOf="parent"
+		app:layout_constraintTop_toBottomOf="@id/nickEdit" />
+
+	<EditText
+		android:id="@+id/passwordEdit"
+		android:layout_width="294dp"
+		android:layout_height="60dp"
+		android:layout_marginStart="8dp"
+		android:layout_marginTop="18dp"
+		android:layout_marginEnd="8dp"
+		android:background="@drawable/back_input_edit"
+		android:drawableLeft="@mipmap/ic_password"
+		android:drawablePadding="12dp"
+		android:ems="10"
+		android:hint="密码"
+		android:inputType="textPassword"
+		android:paddingStart="28dp"
+		android:textColor="@color/colorInputGray"
+		android:textColorHint="@color/colorInputGray"
+		app:layout_constraintEnd_toEndOf="parent"
+		app:layout_constraintStart_toStartOf="parent"
+		app:layout_constraintTop_toBottomOf="@id/phoneEdit" />
+
+	<EditText
+		android:id="@+id/passwordAgainEdit"
+		android:layout_width="294dp"
+		android:layout_height="60dp"
+		android:layout_marginStart="8dp"
+		android:layout_marginTop="18dp"
+		android:layout_marginEnd="8dp"
+		android:background="@drawable/back_input_edit"
+		android:drawableLeft="@mipmap/ic_password"
+		android:drawablePadding="12dp"
+		android:ems="10"
+		android:hint="重复确认密码"
+		android:inputType="textPassword"
+		android:paddingStart="28dp"
+		android:textColor="@color/colorInputGray"
+		android:textColorHint="@color/colorInputGray"
+		app:layout_constraintEnd_toEndOf="parent"
+		app:layout_constraintStart_toStartOf="parent"
+		app:layout_constraintTop_toBottomOf="@id/passwordEdit" />
+
+	<Button
+		android:id="@+id/registerBtn"
+		android:layout_width="294dp"
+		android:layout_height="60dp"
+		android:layout_marginStart="8dp"
+		android:layout_marginTop="30dp"
+		android:layout_marginEnd="8dp"
+		android:background="@drawable/back_login_btn"
+		android:text="注册"
+		android:textColor="@color/colorWordBlack"
+		android:textSize="16sp"
+		app:layout_constraintEnd_toEndOf="parent"
+		app:layout_constraintStart_toStartOf="parent"
+		app:layout_constraintTop_toBottomOf="@+id/passwordAgainEdit" />
+
+	<TextView
+		android:id="@+id/loginText"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_marginTop="8dp"
+		android:text="已有账号？前往登录"
+		android:textColor="@color/colorTextGray"
+		android:textSize="14sp"
+		app:layout_constraintBottom_toBottomOf="parent"
+		app:layout_constraintEnd_toEndOf="parent"
+		app:layout_constraintStart_toStartOf="parent"
+		app:layout_constraintTop_toBottomOf="@id/registerBtn" />
+
+	<ImageView
+		android:layout_width="278dp"
+		android:layout_height="23dp"
+		android:layout_marginStart="8dp"
+		android:src="@mipmap/img_login_back1"
+		app:layout_constraintBottom_toBottomOf="parent"
+		app:layout_constraintStart_toStartOf="parent" />
+
+	<ImageView
+		android:layout_width="283dp"
+		android:layout_height="63dp"
+		android:src="@mipmap/img_login_back2"
+		app:layout_constraintBottom_toBottomOf="parent"
+		app:layout_constraintEnd_toEndOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
