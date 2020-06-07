@@ -2,8 +2,25 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" android:orientation="vertical"
 	android:layout_width="match_parent" android:layout_height="match_parent"
 	android:id="@+id/container">
-	<TextView
-		android:text="disc"
-		android:layout_width="wrap_content"
-		android:layout_height="wrap_content" />
+
+	<FrameLayout
+		android:id="@+id/layout6"
+		android:background="#fff"
+		android:layout_width="match_parent"
+		android:layout_height="56dp">
+		<TextView
+			android:layout_marginStart="18dp"
+			android:layout_gravity="center_vertical"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:text="健康知识"
+			android:textSize="20sp"
+			android:textColor="@color/colorWordBlack"/>
+	</FrameLayout>
+	<androidx.recyclerview.widget.RecyclerView
+		android:id="@+id/recyclerView"
+		android:layout_width="match_parent"
+		android:layout_height="match_parent">
+
+	</androidx.recyclerview.widget.RecyclerView>
 </LinearLayout>

@@ -27,9 +27,22 @@
         <item name="cornerSize">0dp</item>
     </style>
 
-	<style name="AppTheme.NoActionBar">
+	<style name="TransparentStatusBarNoActionBar" parent="Theme.MaterialComponents.Light.NoActionBar">
 		<item name="windowActionBar">false</item>
 		<item name="windowNoTitle">true</item>
+		<item name="android:statusBarColor">#fff</item>
+		<item name="android:windowLightStatusBar">true</item>
+		<item name="colorPrimary">@color/colorPrimary</item>
+		<item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+		<item name="colorAccent">@color/colorAccent</item>
+	</style>
+
+	<style name="GreenStatusBarColorTheme" parent="TransparentStatusBarNoActionBar">
+		<item name="android:statusBarColor">@color/colorPrimaryDark</item>
+	</style>
+
+	<style name="GrayStatusBarColorTheme" parent="TransparentStatusBarNoActionBar">
+		<item name="android:statusBarColor">@color/colorBackGray</item>
 	</style>
 
 	<style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />

@@ -8,5 +8,4 @@ data class CommentModel(
     @SerializedName("commenter")val commenterName:String,
     val content:String,
     @SerializedName("realease_time")val releaseTime:String,
-    @SerializedName("commenter_id")val commenterId:String
-    )
+    @SerializedName("commenter_id")val commenterId:String)

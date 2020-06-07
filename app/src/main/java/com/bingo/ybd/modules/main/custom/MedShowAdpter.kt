@@ -34,7 +34,7 @@ class MedShowAdpter(val medList:List<MedBriefModel>,val context: Context): Recyc
     }
 
 
-    class ViewHolder(val mItemView:View):RecyclerView.ViewHolder(mItemView){
+    class ViewHolder(mItemView:View):RecyclerView.ViewHolder(mItemView){
         val medImg:ImageView = mItemView.findViewById(R.id.medImg)
         val medNameText:TextView = mItemView.findViewById(R.id.medNameText)
         val medFunctionsText:TextView = mItemView.findViewById(R.id.medFunctionsText)

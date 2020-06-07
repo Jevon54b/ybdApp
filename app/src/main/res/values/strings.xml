@@ -9,7 +9,7 @@
 	<string name="title_home">Home</string>
 	<string name="title_dashboard">Dashboard</string>
 	<string name="title_notifications">Notifications</string>
-	<string name="title_activity_order_list">订单</string>
+	<string name="title_activity_order_list">我的订单</string>
 	<string name="tab_text_1">当前订单</string>
 	<string name="tab_text_2">历史订单</string>
 </resources>

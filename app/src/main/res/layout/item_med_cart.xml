@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="match_parent"
+	android:layout_height="96dp"
+	android:paddingStart="12dp"
+	android:paddingEnd="12dp"
+	android:background="#FFF">
+
+	<ImageView
+		android:id="@+id/medImg"
+		android:layout_centerVertical="true"
+		android:layout_width="80dp"
+		android:layout_height="80dp" />
+
+	<TextView
+		android:id="@+id/medNameText"
+		android:layout_marginStart="8dp"
+		android:layout_marginTop="2dp"
+		android:layout_alignTop="@id/medImg"
+		android:layout_toRightOf="@id/medImg"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:text="药名"
+		android:textSize="14sp"
+		android:textColor="@color/colorWordBlack"
+		android:textStyle="bold"/>
+
+	<TextView
+		android:id="@+id/medPackingSizeText"
+		android:layout_marginStart="8dp"
+		android:layout_marginTop="2dp"
+		android:layout_below="@id/medNameText"
+		android:layout_toRightOf="@id/medImg"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:text="药名"
+		android:textSize="12sp"
+		/>
+
+	<TextView
+		android:id="@+id/medPriceText"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_marginStart="8dp"
+		android:layout_marginBottom="2dp"
+		android:layout_alignBottom="@id/medImg"
+		android:layout_toRightOf="@id/medImg"
+		android:text="￥2"
+		android:textColor="@color/colorPrimaryDark"
+		/>
+
+	<RelativeLayout
+		android:layout_alignParentRight="true"
+		android:layout_alignBottom="@id/medImg"
+		android:layout_width="80dp"
+		android:layout_height="wrap_content">
+		<ImageView
+			android:layout_centerVertical="true"
+			android:id="@+id/subImg"
+			android:layout_width="16dp"
+			android:layout_height="16dp"
+			android:src="@mipmap/ic_sub"/>
+		<TextView
+			android:id="@+id/medNumText"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_centerInParent="true"
+			android:text="0"
+			android:textSize="16sp"
+			android:textColor="@color/colorWordBlack"/>
+
+		<ImageView
+			android:layout_centerVertical="true"
+			android:id="@+id/addImg"
+			android:layout_alignParentRight="true"
+			android:layout_width="16dp"
+			android:layout_height="16dp"
+			android:src="@mipmap/ic_add"/>
+		
+	</RelativeLayout>
+
+</RelativeLayout>
