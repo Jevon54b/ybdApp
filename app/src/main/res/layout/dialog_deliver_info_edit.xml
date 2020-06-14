@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:layout_width="match_parent"
+	android:layout_height="wrap_content"
+	android:orientation="vertical">
+
+	<TextView
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:text="收货人姓名"
+		android:textColor="?android:textColorSecondary"
+		android:textSize="18sp" />
+
+	<EditText
+		android:id="@+id/nameEdit"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:layout_marginTop="4dp"
+		android:textColor="?android:textColorPrimary"
+		android:textSize="18sp"
+		tools:ignore="Autofill,HardcodedText,LabelFor" />
+
+	<TextView
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:text="电话号码"
+		android:textColor="?android:textColorSecondary"
+		android:textSize="18sp" />
+
+	<EditText
+		android:id="@+id/phoneEdit"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:layout_marginTop="4dp"
+		android:textColor="?android:textColorPrimary"
+		android:textSize="18sp"
+		tools:ignore="Autofill,HardcodedText,LabelFor" />
+
+
+	<TextView
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:text="地址"
+		android:textColor="?android:textColorSecondary"
+		android:textSize="14sp" />
+
+	<EditText
+		android:id="@+id/addressEdit"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:layout_marginTop="4dp"
+		android:textColor="?android:textColorPrimary"
+		android:textSize="18sp"
+		tools:ignore="Autofill,HardcodedText,LabelFor" />
+
+	<CheckBox
+		android:id="@+id/showPassword"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_gravity="start"
+		android:layout_marginTop="6dp"
+		android:gravity="center"
+		android:text="设为默认地址"
+		android:textColor="?android:textColorPrimary"
+		android:textSize="16sp" />
+
+</LinearLayout>

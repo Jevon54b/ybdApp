@@ -5,19 +5,30 @@
 	xmlns:app="http://schemas.android.com/apk/res-auto"
 	android:background="@color/colorBackGray">
 
-	<FrameLayout
+	<LinearLayout
 		android:id="@+id/layout8"
 		android:layout_width="match_parent"
-		android:layout_height="56dp">
+		android:layout_height="56dp"
+		android:orientation="horizontal"
+		android:gravity="center_vertical">
+
+		<ImageView
+			android:id="@+id/backImg"
+			android:layout_marginStart="12dp"
+			android:layout_width="12dp"
+			android:layout_height="30dp"
+			android:src="@mipmap/ic_back"
+			android:alpha="0.3" />
+
 		<TextView
-			android:layout_marginStart="18dp"
+			android:layout_marginStart="12dp"
 			android:layout_gravity="center_vertical"
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
 			android:text="提交订单"
 			android:textSize="20sp"
 			android:textColor="@color/colorWordBlack"/>
-	</FrameLayout>
+	</LinearLayout>
 
 	<ScrollView
 		android:layout_below="@id/layout8"
@@ -44,7 +55,7 @@
 						android:includeFontPadding="false"
 						android:layout_marginTop="12dp"
 						android:layout_marginStart="16dp"
-						android:id="@+id/addressText"
+						android:id="@+id/label"
 						android:layout_width="wrap_content"
 						android:layout_height="wrap_content"
 						android:text="收货信息"
@@ -53,9 +64,9 @@
 					<FrameLayout
 						android:layout_width="wrap_content"
 						android:layout_height="wrap_content"
-						android:layout_toRightOf="@id/addressText"
-						android:layout_alignTop="@id/addressText"
-						android:layout_alignBottom="@id/addressText">
+						android:layout_toRightOf="@id/label"
+						android:layout_alignTop="@id/label"
+						android:layout_alignBottom="@id/label">
 						<TextView
 							android:layout_gravity="center_vertical"
 							android:layout_marginStart="8dp"
@@ -71,8 +82,8 @@
 					<TextView
 						android:id="@+id/phoneText"
 						android:layout_marginTop="16dp"
-						android:layout_alignLeft="@id/addressText"
-						android:layout_below="@id/addressText"
+						android:layout_alignLeft="@id/label"
+						android:layout_below="@id/label"
 						android:layout_width="wrap_content"
 						android:layout_height="wrap_content"
 						android:text="电话"
@@ -82,7 +93,7 @@
 						android:layout_marginTop="16dp"
 						android:layout_marginStart="12dp"
 						android:layout_toRightOf="@id/phoneText"
-						android:layout_below="@id/addressText"
+						android:layout_below="@id/label"
 						android:layout_width="wrap_content"
 						android:layout_height="wrap_content"
 						android:text="姓名"
@@ -98,6 +109,7 @@
 						android:layout_marginBottom="16dp"/>
 
 					<TextView
+						android:id="@+id/addressText"
 						android:includeFontPadding="false"
 						android:layout_width="wrap_content"
 						android:layout_height="wrap_content"
@@ -108,6 +120,7 @@
 						android:layout_marginStart="6dp"/>
 
 					<LinearLayout
+						android:id="@+id/editInfoView"
 						android:layout_marginEnd="12dp"
 						android:layout_marginTop="12dp"
 						android:layout_width="wrap_content"
@@ -134,9 +147,11 @@
 				android:layout_width="match_parent"
 				android:layout_height="wrap_content"
 				app:cardCornerRadius="6dp"
-				android:layout_marginHorizontal="12dp">
+				android:layout_marginHorizontal="12dp"
+				android:layout_marginTop="12dp">
 
 				<LinearLayout
+					android:paddingVertical="12dp"
 					android:layout_width="match_parent"
 					android:layout_height="wrap_content"
 					android:orientation="vertical">
@@ -147,29 +162,162 @@
 						android:orientation="horizontal"
 						android:gravity="center_vertical">
 						<ImageView
-							android:layout_width="20dp"
-							android:layout_height="30dp"
+							android:layout_marginLeft="16dp"
+							android:layout_width="15dp"
+							android:layout_height="25dp"
 							android:src="@mipmap/ic_med"/>
 
 						<TextView
 							android:layout_width="wrap_content"
 							android:layout_height="wrap_content"
+							android:layout_marginLeft="12dp"
 							android:text="大学城药必达分店"
 							android:textSize="18sp"
+							android:textColor="#80000000"
+							android:textStyle="bold"
 							/>
 					</LinearLayout>
 
 					<androidx.recyclerview.widget.RecyclerView
+						android:layout_marginTop="8dp"
 						android:id="@+id/recyclerView"
 						android:layout_width="match_parent"
 						android:layout_height="wrap_content">
 					</androidx.recyclerview.widget.RecyclerView>
 
-				</LinearLayout>
+					<RelativeLayout
+						android:layout_marginLeft="16dp"
+						android:layout_marginTop="8dp"
+						android:layout_width="match_parent"
+						android:layout_height="wrap_content">
 
+						<TextView
+							android:layout_centerVertical="true"
+							android:layout_width="wrap_content"
+							android:layout_height="wrap_content"
+							android:text="配送方式"
+							android:textColor="@color/colorWordBlack" />
+
+						<RadioGroup
+							android:id="@+id/radioGroup"
+							android:layout_alignParentRight="true"
+							android:layout_marginRight="16dp"
+							android:layout_width="wrap_content"
+							android:layout_height="wrap_content"
+							android:orientation="horizontal">
+
+							<com.google.android.material.radiobutton.MaterialRadioButton
+								android:id="@+id/radioBtn1"
+								android:layout_width="wrap_content"
+								android:layout_height="wrap_content"
+								android:text="立即配送" />
+
+							<com.google.android.material.radiobutton.MaterialRadioButton
+								android:id="@+id/radioBtn2"
+								android:layout_marginLeft="8dp"
+								android:layout_width="wrap_content"
+								android:layout_height="wrap_content"
+								android:text="预约配送" />
+						</RadioGroup>
+
+					</RelativeLayout>
+
+					<RelativeLayout
+						android:paddingVertical="4dp"
+						android:layout_marginLeft="16dp"
+						android:layout_marginTop="8dp"
+						android:layout_width="match_parent"
+						android:layout_height="wrap_content">
+
+						<TextView
+							android:layout_centerVertical="true"
+							android:textColor="@color/colorWordBlack"
+							android:layout_width="wrap_content"
+							android:layout_height="wrap_content"
+							android:text="药品总额" />
+
+						<TextView
+							android:id="@+id/orderMedPriceText"
+							android:layout_marginRight="16dp"
+							android:layout_alignParentRight="true"
+							android:layout_centerVertical="true"
+							android:layout_width="wrap_content"
+							android:layout_height="wrap_content"
+							android:text="￥28" />
+					</RelativeLayout>
+
+
+					<RelativeLayout
+						android:paddingVertical="4dp"
+						android:layout_marginLeft="16dp"
+						android:layout_marginTop="8dp"
+						android:layout_width="match_parent"
+						android:layout_height="wrap_content">
+
+						<TextView
+							android:layout_centerVertical="true"
+							android:textColor="@color/colorWordBlack"
+							android:layout_width="wrap_content"
+							android:layout_height="wrap_content"
+							android:text="配送费用" />
+
+						<TextView
+							android:id="@+id/deliverFeeText"
+							android:layout_marginRight="16dp"
+							android:layout_alignParentRight="true"
+							android:layout_centerVertical="true"
+							android:layout_width="wrap_content"
+							android:layout_height="wrap_content"
+							android:text="￥2" />
+					</RelativeLayout>
+
+
+					<RelativeLayout
+						android:paddingVertical="4dp"
+						android:layout_marginLeft="16dp"
+						android:layout_marginTop="8dp"
+						android:layout_width="match_parent"
+						android:layout_height="wrap_content">
+
+						<TextView
+							android:layout_centerVertical="true"
+							android:textColor="@color/colorWordBlack"
+							android:layout_width="wrap_content"
+							android:layout_height="wrap_content"
+							android:text="实付金额" />
+
+						<TextView
+							android:id="@+id/totalPriceText"
+							android:layout_marginRight="16dp"
+							android:layout_alignParentRight="true"
+							android:layout_centerVertical="true"
+							android:layout_width="wrap_content"
+							android:layout_height="wrap_content"
+							android:text="￥30"
+							android:textColor="@color/colorHighRed" />
+					</RelativeLayout>
+
+				</LinearLayout>
 
 			</com.google.android.material.card.MaterialCardView>
 
+			<TextView
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:textSize="12sp"
+				android:layout_marginStart="16dp"
+				android:layout_marginEnd="16dp"
+				android:layout_marginTop="12dp"
+				android:text="药必达经合作药店委托发布药品信息,请在购买时严格阅读说明,并按照说明书要求服用。" />
+
+			<TextView
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:textSize="12sp"
+				android:layout_marginStart="16dp"
+				android:layout_marginEnd="16dp"
+				android:layout_marginTop="12dp"
+				android:text="如需发票,请携带药店票据到所需配送门店开具。" />
 
 		</LinearLayout>
 
@@ -184,15 +332,7 @@
 		android:layout_height="48dp">
 
 		<TextView
-			android:layout_width="0dp"
-			android:layout_height="match_parent"
-			android:layout_weight="1"
-			android:textColor="@color/colorPrimaryDark"
-			android:text="商品总额"
-			android:textSize="18sp"
-			android:gravity="center" />
-
-		<TextView
+			android:id="@+id/postOrderBtn"
 			android:background="@drawable/back_green_text"
 			android:layout_width="0dp"
 			android:layout_weight="1"
