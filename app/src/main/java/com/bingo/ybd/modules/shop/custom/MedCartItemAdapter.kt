@@ -12,6 +12,9 @@ import com.bingo.ybd.modules.main.model.MedBriefModel
 import com.bumptech.glide.Glide
 
 class MedCartItemAdapter(val mContext: Context, val medList:List<MedBriefModel>) : RecyclerView.Adapter<MedCartItemAdapter.ViewHolder>(){
+
+    var medCountChangeListener:MedCountChangeListener? = null
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         var view = LayoutInflater.from(mContext).inflate(R.layout.item_med_cart,parent,false)
         return ViewHolder(view)
@@ -29,10 +32,10 @@ class MedCartItemAdapter(val mContext: Context, val medList:List<MedBriefModel>)
         holder.medNumText.text = "x${data.medNum}"
         holder.medPriceText.text = "￥${data.price}"
         holder.addImg.setOnClickListener {
-
+            medCountChangeListener?.onAdd(position)
         }
         holder.subImg.setOnClickListener {
-
+            medCountChangeListener?.onSub(position)
         }
     }
 
@@ -45,5 +48,10 @@ class MedCartItemAdapter(val mContext: Context, val medList:List<MedBriefModel>)
         val medNumText: TextView = mView.findViewById(R.id.medNumText)
         val addImg:ImageView = mView.findViewById(R.id.addImg)
         val subImg:ImageView = mView.findViewById(R.id.subImg)
+    }
+
+    interface MedCountChangeListener{
+        fun onSub(position: Int)
+        fun onAdd(position: Int)
     }
 }
