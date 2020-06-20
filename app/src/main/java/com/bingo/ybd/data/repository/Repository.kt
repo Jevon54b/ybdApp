@@ -1,13 +1,12 @@
 package com.bingo.ybd.data.repository
 
-import android.util.Log
 import com.bingo.ybd.R
+import com.bingo.ybd.data.model.BaseResponse
+import com.bingo.ybd.data.model.UserInfo
 import com.bingo.ybd.data.network.BingoNetwork
-import com.bingo.ybd.modules.user.model.LoginResponse
 
 object Repository{
-    suspend fun userLogin(phone:String,password:String):LoginResponse {
-        Log.d("test","test2")
+    suspend fun userLogin(phone: String, password: String): BaseResponse<UserInfo> {
         return BingoNetwork.login(phone, password)
     }
 

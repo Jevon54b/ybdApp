@@ -23,7 +23,12 @@
 		</activity>
 		<activity
 			android:name=".modules.user.activity.LoginActivity"
-			android:label="登录"></activity>
+			android:label="登录">
+			<intent-filter>
+				<action android:name="android.intent.action.MAIN" />
+				<category android:name="android.intent.category.LAUNCHER" />
+			</intent-filter>
+		</activity>
 		<activity
 			android:name=".modules.user.activity.RegisterActivity"
 			android:label="注册" />
@@ -39,10 +44,7 @@
 		</activity>
 		<activity android:name=".modules.shop.PostOrderActivity"
 			android:theme="@style/GrayStatusBarColorTheme">
-			<intent-filter>
-				<action android:name="android.intent.action.MAIN" />
-				<category android:name="android.intent.category.LAUNCHER" />
-			</intent-filter>
+
 		</activity>
 
 		<!-- 访问http连接 -->

@@ -1,8 +1,11 @@
 package com.bingo.ybd.data.network
 
-import com.bingo.ybd.modules.user.model.LoginResponse
+import com.bingo.ybd.data.model.BaseResponse
+import com.bingo.ybd.data.model.UserInfo
 import retrofit2.Call
-import retrofit2.http.*
+import retrofit2.http.Field
+import retrofit2.http.FormUrlEncoded
+import retrofit2.http.POST
 
 interface ApiService {
 //    @GET("v2/place?token=${BingoWeatherApplication.token}&lang=zh_CN")
@@ -10,6 +13,6 @@ interface ApiService {
 
     @FormUrlEncoded
     @POST("user/login.do")
-    fun login(@Field("phone")phone:String,@Field("password")password:String):Call<LoginResponse>
+    fun login(@Field("phone") phone: String, @Field("password") password: String): Call<BaseResponse<UserInfo>>
 
 }

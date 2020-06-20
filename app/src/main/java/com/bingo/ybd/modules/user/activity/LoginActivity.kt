@@ -1,9 +1,13 @@
 package com.bingo.ybd.modules.user.activity
 
 import android.content.Intent
+import android.util.Log
+import androidx.lifecycle.Observer
 import com.bingo.ybd.R
 import com.bingo.ybd.base.activity.BaseVMActivity
 import com.bingo.ybd.base.viewmodel.BaseViewModel
+import com.bingo.ybd.data.model.BaseResponse
+import com.bingo.ybd.data.model.UserInfo
 import com.bingo.ybd.modules.user.vm.LoginViewModel
 import kotlinx.android.synthetic.main.activity_login.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -17,6 +21,9 @@ class LoginActivity : BaseVMActivity(){
     }
 
     override fun initView() {
+        userLoginBtn.setOnClickListener {
+            login()
+        }
         registerText.setOnClickListener {
             intent = Intent(this,RegisterActivity::class.java)
             startActivity(intent)
@@ -24,14 +31,20 @@ class LoginActivity : BaseVMActivity(){
     }
 
     private fun login(){
-//        if (username.text.toString().isNullOrEmpty()){
-//            return
-//        }
-//        if(password.text.toString().isNullOrEmpty()) {
-//            return
-//        }
-//        Log.d("test","test")
-//        mLoginViewModel.userLogin(username.text.toString(),password.text.toString())
+        val phone = phoneEdit.text.toString()
+        val password = passwordEdit.text.toString()
+        if (phone.isNullOrEmpty()) {
+            return
+        }
+        if (password.isNullOrEmpty()) {
+            return
+        }
+        Log.d("test", "test")
+        mLoginViewModel.userLogin(phone, password).observe(this,
+            Observer<BaseResponse<UserInfo>> {
+                Log.e("Test", it.toString())
+            })
+        // Log.e("test",data.value.toString())
     }
 
     override fun getViewModel(): BaseViewModel {
