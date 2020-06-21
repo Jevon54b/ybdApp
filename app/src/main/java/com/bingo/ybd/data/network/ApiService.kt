@@ -2,9 +2,11 @@ package com.bingo.ybd.data.network
 
 import com.bingo.ybd.data.model.BaseResponse
 import com.bingo.ybd.data.model.UserInfo
+import kotlinx.coroutines.Deferred
 import retrofit2.Call
 import retrofit2.http.Field
 import retrofit2.http.FormUrlEncoded
+import retrofit2.http.GET
 import retrofit2.http.POST
 
 interface ApiService {
@@ -13,6 +15,22 @@ interface ApiService {
 
     @FormUrlEncoded
     @POST("user/login.do")
-    fun login(@Field("phone") phone: String, @Field("password") password: String): Call<BaseResponse<UserInfo>>
+    suspend fun login(
+        @Field("phone") phone: String,
+        @Field("password") password: String
+    ): BaseResponse<UserInfo>
+
+
+    @FormUrlEncoded
+    @POST("user/register.do")
+    suspend fun register(
+        @Field("nick") nick: String,
+        @Field("phone") phone: String,
+        @Field("password") password: String
+    ): BaseResponse<Any>
+
+    @GET("medicine/getTop5MedList.do")
+    suspend fun getTop5MedList()
+
 
 }

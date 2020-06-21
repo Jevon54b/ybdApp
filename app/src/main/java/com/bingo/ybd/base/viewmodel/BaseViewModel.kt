@@ -27,22 +27,20 @@ open class BaseViewModel : ViewModel() {
     //todo 理解高级函数
     fun <T> emit(block: suspend LiveDataScope<BaseResponse<T>>.() -> BaseResponse<T>): LiveData<BaseResponse<T>> =
         liveData {
-            viewModelScope.launch {
-                Log.e(TAG, "TEST3")
-                try {
-                    mStateLiveData.value = LoadState
-                    val response = block()
-                    if (response.status == "200") {
-                        emit(response)
-                        mStateLiveData.value = SuccessState
-                    } else {
-                        mStateLiveData.value = ErrorState(response.msg)
-                    }
-                } catch (e: Exception) {
-                    e.printStackTrace()
-                    mStateLiveData.value = ErrorState(e.message)
+            try {
+                mStateLiveData.value = LoadState
+                val response = block()
+                if (response.status == "200") {
+                    emit(response)
+                    mStateLiveData.value = SuccessState
+                } else {
+                    mStateLiveData.value = ErrorState(response.msg)
                 }
+            } catch (e: Exception) {
+                e.printStackTrace()
+                Log.e(TAG, e.message)
+                mStateLiveData.value = ErrorState(e.message)
+            }
         }
-    }
 
 }

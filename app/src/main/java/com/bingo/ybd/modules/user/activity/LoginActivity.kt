@@ -16,16 +16,17 @@ class LoginActivity : BaseVMActivity(){
 
     private val mLoginViewModel: LoginViewModel by viewModel()
 
-    override fun getLayoutId(): Int {
-        return R.layout.activity_login
-    }
+    override fun getLayoutId(): Int = R.layout.activity_login
+
+    override fun getViewModel(): BaseViewModel = mLoginViewModel
+
 
     override fun initView() {
         userLoginBtn.setOnClickListener {
             login()
         }
         registerText.setOnClickListener {
-            intent = Intent(this,RegisterActivity::class.java)
+            intent = Intent(this, RegisterActivity::class.java)
             startActivity(intent)
         }
     }
@@ -41,19 +42,11 @@ class LoginActivity : BaseVMActivity(){
         }
         Log.d("test", "test")
         mLoginViewModel.userLogin(phone, password).observe(this,
-            Observer<BaseResponse<UserInfo>> {
+            Observer {
                 Log.e("Test", it.toString())
             })
         // Log.e("test",data.value.toString())
     }
-
-    override fun getViewModel(): BaseViewModel {
-        return mLoginViewModel
-    }
-
-
-
-
 
 
 }

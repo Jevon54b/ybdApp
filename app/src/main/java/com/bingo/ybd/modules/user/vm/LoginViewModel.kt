@@ -13,21 +13,7 @@ class LoginViewModel(private val repository: Repository) : BaseViewModel() {
         const val TAG = "LoginViewModel"
     }
 
-//    private val datas : MutableLiveData<LoginResponse> by lazy {
-//        MutableLiveData<LoginResponse>().also {  }
-//    }
-
-//    fun userLogin(phone:String,password:String){
-//        launch {
-//            Log.e(TAG,"test2")
-//            repository.userLogin(phone, password)
-//        }
-//    }
-
-    //    var mUserInfoModel = MutableLiveData<UserInfo>()
-//
     fun userLogin(phone: String, password: String): LiveData<BaseResponse<UserInfo>> = emit {
-        Log.e(TAG, "test2")
         repository.userLogin(phone, password)
     }
 

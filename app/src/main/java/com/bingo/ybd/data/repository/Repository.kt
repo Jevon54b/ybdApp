@@ -3,16 +3,25 @@ package com.bingo.ybd.data.repository
 import com.bingo.ybd.R
 import com.bingo.ybd.data.model.BaseResponse
 import com.bingo.ybd.data.model.UserInfo
-import com.bingo.ybd.data.network.BingoNetwork
+import com.bingo.ybd.data.network.ApiService
+import com.bingo.ybd.data.network.ServiceCreator
 
-object Repository{
+object Repository {
+
+    private val apiService = ServiceCreator.create<ApiService>()
+
+
     suspend fun userLogin(phone: String, password: String): BaseResponse<UserInfo> {
-        return BingoNetwork.login(phone, password)
+        return apiService.login(phone, password)
     }
 
 
+    suspend fun userRegiser(nick: String, phone: String, password: String): BaseResponse<Any> {
+        return apiService.register(nick, phone, password)
+    }
 
-    fun getUserPhoto():Int{
+
+    fun getUserPhoto(): Int {
         var photoList = listOf(
             R.mipmap.p0,
             R.mipmap.p1,
