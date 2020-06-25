@@ -6,8 +6,8 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.bingo.ybd.R
 import com.bingo.ybd.base.activity.BaseVMActivity
 import com.bingo.ybd.base.viewmodel.BaseViewModel
+import com.bingo.ybd.data.model.MedBrief
 import com.bingo.ybd.modules.main.custom.MedShowAdpter
-import com.bingo.ybd.modules.main.model.MedBriefModel
 import com.fondesa.recyclerviewdivider.dividerBuilder
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
@@ -26,7 +26,7 @@ class MedListActivity:BaseVMActivity(),View.OnClickListener {
     var currentIndex = DEFAULT_SORT_INDEX
     var NORMAL_COLOR = 0
     var SELECTED_COLOR = 0
-    lateinit var medList:List<MedBriefModel>
+    lateinit var medList: List<MedBrief>
 
     override fun getLayoutId(): Int {
         return R.layout.activity_med_list
@@ -42,7 +42,7 @@ class MedListActivity:BaseVMActivity(),View.OnClickListener {
         defaultIndex.setTextColor(SELECTED_COLOR)
         currentIndex = DEFAULT_SORT_INDEX
 
-        var medAdapter = MedShowAdpter(medList,this)
+        var medAdapter = MedShowAdpter(this)
         recyclerView.adapter = medAdapter
         recyclerView.layoutManager = LinearLayoutManager(this)
         this.dividerBuilder()
@@ -109,7 +109,7 @@ class MedListActivity:BaseVMActivity(),View.OnClickListener {
                 "            \"med_type\": 30003\n" +
                 "        }\n" +
                 "    ]"
-        medList = gson.fromJson<List<MedBriefModel>>(json,object: TypeToken<List<MedBriefModel>>(){}.type)
+        medList = gson.fromJson(json, object : TypeToken<List<MedBrief>>() {}.type)
     }
 
     override fun onClick(v: View?) {

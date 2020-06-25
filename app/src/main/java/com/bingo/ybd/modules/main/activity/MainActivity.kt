@@ -1,27 +1,49 @@
 package com.bingo.ybd.modules.main.activity
 
+import android.content.Intent
 import android.content.res.ColorStateList
+import android.os.Bundle
+import android.util.Log
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import android.widget.TextView
 import com.bingo.ybd.R
 import com.bingo.ybd.base.activity.BaseVMActivity
 import com.bingo.ybd.base.viewmodel.BaseViewModel
+import com.bingo.ybd.constant.Constant
+import com.bingo.ybd.data.model.UserInfo
 import com.bingo.ybd.modules.disc.fragment.DiscFragment
 import com.bingo.ybd.modules.main.custom.FragPagerAdapter
 import com.bingo.ybd.modules.main.fragment.HomeFragment
+import com.bingo.ybd.modules.main.vm.MainViewModel
 import com.bingo.ybd.modules.mine.fragment.MineFragment
 import com.bingo.ybd.modules.shop.ShopFragment
 import kotlinx.android.synthetic.main.activity_main.*
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class MainActivity : BaseVMActivity() {
-    override fun getLayoutId(): Int {
-        return R.layout.activity_main
+
+    companion object {
+        const val TAG = "MainActivity"
+    }
+
+    val mainViewModel: MainViewModel by viewModel()
+
+    override fun getLayoutId(): Int = R.layout.activity_main
+
+    override fun getViewModel(): BaseViewModel = mainViewModel
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+
     }
 
     override fun initView() {
-        supportActionBar?.title = "首页"
         initNavView()
         initViewPager()
+    }
+
+    override fun initData() {
+
     }
 
     private fun initViewPager() {
@@ -52,11 +74,7 @@ class MainActivity : BaseVMActivity() {
         navView.setOnNavigationItemSelectedListener(onNavigationItemSelectedListener)
     }
 
-    override fun getViewModel(): BaseViewModel {
-        return BaseViewModel()
-    }
 
-    private lateinit var textMessage: TextView
     private val onNavigationItemSelectedListener = BottomNavigationView.OnNavigationItemSelectedListener { item ->
         when (item.itemId) {
             R.id.navigation_home -> {

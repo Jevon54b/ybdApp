@@ -8,24 +8,27 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bingo.ybd.R
-import com.bingo.ybd.modules.main.model.MedBriefModel
+import com.bingo.ybd.base.adapter.BaseRecyclerAdapter
+import com.bingo.ybd.data.model.MedBrief
+import com.bingo.ybd.data.model.MedInOrder
 import com.bumptech.glide.Glide
 
-class MedCartItemAdapter(val mContext: Context, val medList:List<MedBriefModel>) : RecyclerView.Adapter<MedCartItemAdapter.ViewHolder>(){
+class MedCartItemAdapter(val mContext: Context) :
+    BaseRecyclerAdapter<MedInOrder, MedCartItemAdapter.ViewHolder>() {
 
-    var medCountChangeListener:MedCountChangeListener? = null
+    var medCountChangeListener: MedCountChangeListener? = null
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        var view = LayoutInflater.from(mContext).inflate(R.layout.item_med_cart,parent,false)
+        var view = LayoutInflater.from(mContext).inflate(R.layout.item_med_cart, parent, false)
         return ViewHolder(view)
     }
 
     override fun getItemCount(): Int {
-        return medList.size
+        return list.size
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val data = medList.get(position)
+        val data = list[position]
         Glide.with(mContext).load(data.pic).into(holder.medImg)
         holder.medNameText.text = data.name
         holder.medPackingSizeText.text = data.packingSize

@@ -1,9 +1,11 @@
 package com.bingo.ybd.data.repository
 
 import com.bingo.ybd.R
+import com.bingo.ybd.constant.Constant
 import com.bingo.ybd.data.model.*
 import com.bingo.ybd.data.network.ApiService
 import com.bingo.ybd.data.network.ServiceCreator
+import com.bingo.ybd.data.storage.Preference
 
 object Repository {
 
@@ -54,7 +56,8 @@ object Repository {
 
     suspend fun getArticleList(): BaseResponse<Article> = apiService.getArticleList()
 
-    suspend fun getArticleDetail(articleId: Int): BaseResponse<Article> = apiService.getArticleDetail(articleId)
+    suspend fun getArticleDetail(articleId: Int): BaseResponse<Article> =
+        apiService.getArticleDetail(articleId)
 
     suspend fun getArticleCommentList(articleId: Int): BaseResponse<List<Comment>> =
         apiService.getArticleCommentList(articleId)
@@ -62,6 +65,10 @@ object Repository {
     suspend fun addComment(
         articleId: Int, userId: Int, content: String, username: String
     ): BaseResponse<List<Comment>> = apiService.addComment(articleId, userId, content, username)
+
+    fun saveUserInfo(userInfo: UserInfo) {
+
+    }
 
     fun getUserPhoto(): Int {
         var photoList = listOf(
@@ -71,7 +78,8 @@ object Repository {
             R.mipmap.p3,
             R.mipmap.p4,
             R.mipmap.p5,
-            R.mipmap.p6)
+            R.mipmap.p6
+        )
         var randomIndex = (0..6).random()
         return photoList[randomIndex]
     }

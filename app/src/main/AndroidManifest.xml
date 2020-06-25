@@ -16,9 +16,10 @@
 		android:theme="@style/TransparentStatusBarNoActionBar">
 		<activity
 			android:name=".modules.mine.activity.OrderListActivity"
-			android:theme="@style/GreenStatusBarColorTheme">
-		</activity>
-		<activity android:name=".modules.main.activity.MainActivity">
+			android:theme="@style/GreenStatusBarColorTheme"></activity>
+		<activity
+			android:name=".modules.main.activity.MainActivity"
+			android:launchMode="singleTask">
 
 		</activity>
 		<activity
@@ -32,17 +33,18 @@
 		<activity
 			android:name=".modules.user.activity.RegisterActivity"
 			android:label="注册" />
-		<activity android:name=".modules.disc.activity.ArticleDetailActivity"
-			android:theme="@style/TransparentStatusBarNoActionBar"
-			>
+		<activity
+			android:name=".modules.disc.activity.ArticleDetailActivity"
+			android:theme="@style/TransparentStatusBarNoActionBar">
 
 		</activity>
 		<activity android:name=".modules.disc.activity.ArticleListActivity"></activity>
 		<activity android:name=".modules.main.activity.MedListActivity"></activity>
-		<activity android:name=".modules.disc.activity.MedDetailActivity">
+		<activity android:name=".modules.main.activity.MedDetailActivity">
 
 		</activity>
-		<activity android:name=".modules.shop.PostOrderActivity"
+		<activity
+			android:name=".modules.shop.PostOrderActivity"
 			android:theme="@style/GrayStatusBarColorTheme">
 
 		</activity>

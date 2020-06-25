@@ -8,21 +8,23 @@ import android.widget.TextView
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.bingo.ybd.R
-import com.bingo.ybd.modules.mine.model.OrderModel
+import com.bingo.ybd.base.adapter.BaseRecyclerAdapter
+import com.bingo.ybd.data.model.Order
 import com.fondesa.recyclerviewdivider.dividerBuilder
 
-class OrderAdpter(val mContext:Context,val orderList:List<OrderModel>):RecyclerView.Adapter<OrderAdpter.ViewHolder>() {
+class OrderAdapter(private val mContext: Context) :
+    BaseRecyclerAdapter<Order, OrderAdapter.ViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val view = LayoutInflater.from(mContext).inflate(R.layout.item_order,parent,false)
+        val view = LayoutInflater.from(mContext).inflate(R.layout.item_order, parent, false)
         return ViewHolder(view)
     }
 
     override fun getItemCount(): Int {
-        return orderList.size
+        return list.size
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val data = orderList.get(position)
+        val data = list[position]
         holder.payTimeText.text = data.payTime
         if (data.needCheck==0){
             holder.orderStateText.text = when(data.state){
@@ -32,14 +34,15 @@ class OrderAdpter(val mContext:Context,val orderList:List<OrderModel>):RecyclerV
                 -1 -> "订单已取消"
                 else -> ""
             }
-        }else{
+        } else {
             holder.orderStateText.text = "等待审核中"
         }
 
         holder.orderPriceText.text = data.totalSum.toString()
 
-        val medAdpter = MedInOrderAdapter(mContext,data.medList)
-        holder.medRecyclerView.adapter = medAdpter
+        val medAdapter = MedInOrderAdapter(mContext)
+        medAdapter.addAll(data.medList)
+        holder.medRecyclerView.adapter = medAdapter
         holder.medRecyclerView.layoutManager = LinearLayoutManager(mContext)
 
         mContext.dividerBuilder()

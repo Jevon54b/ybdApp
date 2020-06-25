@@ -9,8 +9,9 @@ import com.afollestad.materialdialogs.lifecycle.lifecycleOwner
 import com.bingo.ybd.R
 import com.bingo.ybd.base.activity.BaseVMActivity
 import com.bingo.ybd.base.viewmodel.BaseViewModel
+import com.bingo.ybd.data.model.MedBrief
+import com.bingo.ybd.data.model.MedInOrder
 import com.bingo.ybd.ext.errorToast
-import com.bingo.ybd.modules.main.model.MedBriefModel
 import com.bingo.ybd.modules.shop.custom.MedPostItemAdapter
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
@@ -20,7 +21,7 @@ class PostOrderActivity : BaseVMActivity(){
 
     val TAG = "PostOrderActivity"
 
-    var medList: List<MedBriefModel>? = null
+    var medList: List<MedInOrder>? = null
 
     override fun getLayoutId(): Int {
         return R.layout.activity_post_order
@@ -28,7 +29,7 @@ class PostOrderActivity : BaseVMActivity(){
 
     override fun initView() {
         initTestData()
-        recyclerView.adapter = MedPostItemAdapter(this, medList!!)
+        recyclerView.adapter = MedPostItemAdapter(this)
         recyclerView.layoutManager = LinearLayoutManager(this)
 
         backImg.setOnClickListener {
@@ -111,7 +112,7 @@ class PostOrderActivity : BaseVMActivity(){
                 "            ]\n"
 
         val gson = Gson()
-        medList = gson.fromJson(json, object : TypeToken<List<MedBriefModel>>() {}.type)
+        medList = gson.fromJson(json, object : TypeToken<List<MedBrief>>() {}.type)
 
     }
 

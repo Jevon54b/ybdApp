@@ -6,7 +6,9 @@ import androidx.lifecycle.Observer
 import com.bingo.ybd.R
 import com.bingo.ybd.base.activity.BaseVMActivity
 import com.bingo.ybd.base.viewmodel.BaseViewModel
+import com.bingo.ybd.config.Settings
 import com.bingo.ybd.constant.Constant
+import com.bingo.ybd.modules.main.activity.MainActivity
 import com.bingo.ybd.modules.user.vm.LoginViewModel
 import kotlinx.android.synthetic.main.activity_login.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -43,12 +45,21 @@ class LoginActivity : BaseVMActivity(){
         if (password.isNullOrEmpty()) {
             return
         }
-        Log.d("test", "test")
         mLoginViewModel.userLogin(phone, password).observe(this,
             Observer {
-                Log.e("Test", it.toString())
-            })
-        // Log.e("test",data.value.toString())
+                it.data.let {
+                    Settings.Account.apply {
+                        userId = it.id
+                        userName = it.name ?: ""
+                        userMoney = it.money
+                        userPassword = it.password
+                    }
+                }
+                val intent = Intent(this, MainActivity::class.java)
+                intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK
+                startActivity(intent)
+            }
+        )
     }
 
 

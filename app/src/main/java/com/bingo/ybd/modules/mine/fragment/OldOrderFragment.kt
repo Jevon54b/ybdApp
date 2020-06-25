@@ -4,14 +4,14 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.bingo.ybd.R
 import com.bingo.ybd.base.fragment.BaseVMFragment
 import com.bingo.ybd.base.viewmodel.BaseViewModel
-import com.bingo.ybd.modules.mine.custom.OrderAdpter
-import com.bingo.ybd.modules.mine.model.OrderModel
+import com.bingo.ybd.data.model.Order
+import com.bingo.ybd.modules.mine.custom.OrderAdapter
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import kotlinx.android.synthetic.main.fragment_current_order.*
 
 class OldOrderFragment:BaseVMFragment() {
-    lateinit var orderList:List<OrderModel>
+    lateinit var orderList: List<Order>
 
     override fun getLayoutRes(): Int {
         return R.layout.fragment_old_order
@@ -60,7 +60,7 @@ class OldOrderFragment:BaseVMFragment() {
                 "        }\n" +
                 "    ]"
         var gson = Gson()
-        orderList = gson.fromJson(json,object: TypeToken<List<OrderModel>>(){}.type)
+        orderList = gson.fromJson(json, object : TypeToken<List<Order>>() {}.type)
     }
 
     override fun getViewModel(): BaseViewModel {
@@ -69,7 +69,7 @@ class OldOrderFragment:BaseVMFragment() {
 
     override fun initView() {
         initTestData()
-        val orderAdapter = OrderAdpter(requireContext(),orderList)
+        val orderAdapter = OrderAdapter(requireContext())
         orderRecyclerView.adapter = orderAdapter
         orderRecyclerView.layoutManager = LinearLayoutManager(requireContext())
     }

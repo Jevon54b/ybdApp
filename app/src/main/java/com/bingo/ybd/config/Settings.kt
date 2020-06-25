@@ -7,9 +7,11 @@ import com.bingo.ybd.data.storage.Preference
 
 object Settings {
 
+    //Preference代理存储用户信息
     object Account {
-        var loginUser by Preference(Constant.LOGIN_USER, "")
-        var userName by Preference(Constant.USER_NAME, "")
-        var password by Preference(Constant.USER_PASSWORD, "")
+        var userId by Preference(Constant.KEY_USER_ID, "")
+        var userName by Preference(Constant.KEY_USER_NICK, "")
+        var userPassword by Preference(Constant.KEY_PASSWORD, "")
+        var userMoney by Preference(Constant.KEY_USER_MONEY, "")
     }
 }

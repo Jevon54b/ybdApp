@@ -8,27 +8,29 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bingo.ybd.R
-import com.bingo.ybd.modules.main.model.MedBriefModel
+import com.bingo.ybd.base.adapter.BaseRecyclerAdapter
+import com.bingo.ybd.data.model.MedBrief
 import com.bumptech.glide.Glide
 
-class MedShowAdpter(val medList:List<MedBriefModel>,val context: Context): RecyclerView.Adapter<MedShowAdpter.ViewHolder>(){
+class MedShowAdpter(val context: Context) :
+    BaseRecyclerAdapter<MedBrief, MedShowAdpter.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val view = LayoutInflater.from(context).inflate(R.layout.item_med_show, parent,false)
+        val view = LayoutInflater.from(context).inflate(R.layout.item_med_show, parent, false)
         return ViewHolder(view)
     }
 
     override fun getItemCount(): Int {
-        return medList.size
+        return list.size
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val medData = medList.get(position)
+        val medData = list[position]
         Glide.with(context).load(medData.pic).into(holder.medImg)
-        holder.medNameText.setText(medData.name)
-        holder.medFunctionsText.setText(medData.note)
-        holder.medPriceText.setText("￥${medData.price}")
-        holder.medSalesNumText.setText("销量:${medData.salesNum}")
+        holder.medNameText.text = medData.name
+        holder.medFunctionsText.text = medData.note
+        holder.medPriceText.text = "￥${medData.price}"
+        holder.medSalesNumText.text = "销量:${medData.salesNum}"
 
         //监听点击事件
     }

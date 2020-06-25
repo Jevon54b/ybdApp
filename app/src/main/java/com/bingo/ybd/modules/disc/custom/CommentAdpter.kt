@@ -8,32 +8,35 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bingo.ybd.R
+import com.bingo.ybd.base.adapter.BaseRecyclerAdapter
+import com.bingo.ybd.data.model.Comment
 import com.bingo.ybd.data.repository.Repository
-import com.bingo.ybd.modules.disc.model.CommentModel
 import com.bumptech.glide.Glide
 import java.text.SimpleDateFormat
 import java.util.*
 
 
-class CommentAdpter(val mContext:Context,val commentList:List<CommentModel>): RecyclerView.Adapter<CommentAdpter.ViewHolder>() {
+class CommentAdpter(val mContext: Context) :
+    BaseRecyclerAdapter<Comment, CommentAdpter.ViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val view = LayoutInflater.from(mContext).inflate(R.layout.item_comment,parent,false)
+        val view = LayoutInflater.from(mContext).inflate(R.layout.item_comment, parent, false)
         return ViewHolder(view)
     }
 
     override fun getItemCount(): Int {
-        return commentList.size
+        return list.size
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val data:CommentModel = commentList[position]
-        Glide.with(mContext).load(mContext.resources.getDrawable(Repository.getUserPhoto())).into(holder.commenterImg)
-        holder.commentText.setText(data.content)
-        holder.commenterNameText.setText(data.commenterName)
+        val data = list[position]
+        Glide.with(mContext).load(mContext.resources.getDrawable(Repository.getUserPhoto()))
+            .into(holder.commenterImg)
+        holder.commentText.text = data.content
+        holder.commenterNameText.text = data.commenter
         var time = Date()
-        time.time = data.releaseTime.toLong()
+        time.time = data.releaseTime.toString().toLong()
         val str = SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(time)
-        holder.commentTimeText.setText(str)
+        holder.commentTimeText.text = str
     }
 
     class ViewHolder(mView:View):RecyclerView.ViewHolder(mView){

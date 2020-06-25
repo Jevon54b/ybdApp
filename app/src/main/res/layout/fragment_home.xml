@@ -314,8 +314,8 @@
 		android:id="@+id/recyclerView"
 		android:layout_marginTop="8dp"
 		android:layout_width="match_parent"
-		android:layout_height="585dp">
-	</androidx.recyclerview.widget.RecyclerView>
+		android:layout_height="585dp"
+		android:nestedScrollingEnabled="false"></androidx.recyclerview.widget.RecyclerView>
 
 
 </LinearLayout>

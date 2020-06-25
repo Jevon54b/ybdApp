@@ -8,22 +8,23 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bingo.ybd.R
-import com.bingo.ybd.modules.main.model.MedBriefModel
+import com.bingo.ybd.base.adapter.BaseRecyclerAdapter
+import com.bingo.ybd.data.model.MedInOrder
 import com.bumptech.glide.Glide
 
-class MedPostItemAdapter(val context: Context, val medList: List<MedBriefModel>) :
-    RecyclerView.Adapter<MedPostItemAdapter.ViewHolder>() {
+class MedPostItemAdapter(val context: Context) :
+    BaseRecyclerAdapter<MedInOrder, MedPostItemAdapter.ViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view = LayoutInflater.from(context).inflate(R.layout.item_med_post, parent, false)
         return ViewHolder(view)
     }
 
     override fun getItemCount(): Int {
-        return medList.size
+        return list.size
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val data = medList.get(position)
+        val data = list[position]
         Glide.with(context).load(data.pic).into(holder.medImg)
         holder.medNameText.text = data.name
         holder.medPackingSizeText.text = "规格:${data.packingSize}"

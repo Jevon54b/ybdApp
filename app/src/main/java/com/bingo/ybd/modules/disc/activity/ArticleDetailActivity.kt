@@ -13,9 +13,9 @@ import com.afollestad.materialdialogs.lifecycle.lifecycleOwner
 import com.bingo.ybd.R
 import com.bingo.ybd.base.activity.BaseVMActivity
 import com.bingo.ybd.base.viewmodel.BaseViewModel
+import com.bingo.ybd.data.model.Comment
 import com.bingo.ybd.ext.successToast
 import com.bingo.ybd.modules.disc.custom.CommentAdpter
-import com.bingo.ybd.modules.disc.model.CommentModel
 import com.fondesa.recyclerviewdivider.dividerBuilder
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
@@ -27,7 +27,7 @@ class ArticleDetailActivity:BaseVMActivity(){
 
     val TAG  = "ArticleDetailActivity"
 
-    lateinit var commentList:List<CommentModel>
+    lateinit var commentList: List<Comment>
 
     override fun getLayoutId(): Int {
         return R.layout.activity_article_detail
@@ -41,7 +41,7 @@ class ArticleDetailActivity:BaseVMActivity(){
 
     override fun initView() {
         initDatas()
-        var adpter = CommentAdpter(this,commentList)
+        var adpter = CommentAdpter(this)
         recyclerView.adapter = adpter
         recyclerView.layoutManager = LinearLayoutManager(this)
 
@@ -109,7 +109,7 @@ class ArticleDetailActivity:BaseVMActivity(){
                             "        }\n" +
                 "    ]"
         var gson = Gson()
-        commentList = gson.fromJson(json,object:TypeToken<List<CommentModel>>(){}.type)
+        commentList = gson.fromJson(json, object : TypeToken<List<Comment>>() {}.type)
     }
 
     override fun getViewModel(): BaseViewModel {
