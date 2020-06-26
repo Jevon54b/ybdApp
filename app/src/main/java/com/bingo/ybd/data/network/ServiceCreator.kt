@@ -16,6 +16,7 @@ object ServiceCreator {
         val logger = HttpLoggingInterceptor(HttpLoggingInterceptor.Logger { message ->
             Log.e(TAG, message)
         })
+        logger.level = HttpLoggingInterceptor.Level.BASIC
 
         val client = OkHttpClient.Builder()
             .addInterceptor(logger)

@@ -18,3 +18,11 @@ data class Order(
     @SerializedName("need_check") val needCheck: Int,
     val medList: List<MedInOrder>
 )
+
+data class PostOrderInfo(
+    val name: String,
+    val phone: String,
+    val address: String,
+    val speed: Int,
+    val orderTotalSum: Float
+)

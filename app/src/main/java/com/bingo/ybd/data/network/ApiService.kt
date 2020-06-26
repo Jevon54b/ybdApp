@@ -41,6 +41,7 @@ interface ApiService {
     @GET("medicine/getMedicineDetail.do")
     suspend fun getMedDetail(@Query("med_id") medId: Int): BaseResponse<MedDetail>
 
+
     @GET("medicine/searchMed.do")
     suspend fun searchMed(
         @Query("keyword") keyword: String,
@@ -59,7 +60,7 @@ interface ApiService {
 
 
     @GET("order/getMedListFromCurOrder.do")
-    suspend fun getMedCartList(@Field("user_id") userId: Int): BaseResponse<List<MedInOrder>>
+    suspend fun getMedCartList(@Query("user_id") userId: Int): BaseResponse<List<MedInOrder>>
 
     @FormUrlEncoded
     @POST("order/subMednum.do")

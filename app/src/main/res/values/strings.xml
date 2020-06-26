@@ -7,6 +7,9 @@
 	<string name="comment_cancel">取消</string>
 	<string name="comment_publish">发表</string>
 
+	<string name="title_attention">提示</string>
+	<string name="msg_delete_med">是否将该药品移出购物车?</string>
+
 	<string name="title_activity_main">首页</string>
 	<string name="title_activity_order_list">我的订单</string>
 	<string name="tab_text_1">当前订单</string>

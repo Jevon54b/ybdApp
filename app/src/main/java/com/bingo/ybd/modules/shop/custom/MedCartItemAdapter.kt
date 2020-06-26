@@ -32,7 +32,7 @@ class MedCartItemAdapter(val mContext: Context) :
         Glide.with(mContext).load(data.pic).into(holder.medImg)
         holder.medNameText.text = data.name
         holder.medPackingSizeText.text = data.packingSize
-        holder.medNumText.text = "x${data.medNum}"
+        holder.medNumText.text = "${data.medNum}"
         holder.medPriceText.text = "￥${data.price}"
         holder.addImg.setOnClickListener {
             medCountChangeListener?.onAdd(position)

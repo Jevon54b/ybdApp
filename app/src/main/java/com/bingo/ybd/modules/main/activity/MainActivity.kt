@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.util.Log
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import android.widget.TextView
+import androidx.core.view.get
 import com.bingo.ybd.R
 import com.bingo.ybd.base.activity.BaseVMActivity
 import com.bingo.ybd.base.viewmodel.BaseViewModel
@@ -55,17 +56,23 @@ class MainActivity : BaseVMActivity() {
         viewPager.adapter = pagerAdapter
         viewPager.offscreenPageLimit = pagerAdapter.itemCount
         viewPager.isUserInputEnabled = false
-        viewPager.setCurrentItem(0,false)
     }
 
-    private fun initNavView(){
+    override fun onNewIntent(intent: Intent) {
+        super.onNewIntent(intent)
+        val pageIndex = intent.getIntExtra(Constant.KEY_CART_PAGE_INDEX, 0)
+        viewPager.setCurrentItem(pageIndex, false)
+        navView.menu.getItem(2).isChecked = true
+    }
+
+    private fun initNavView() {
         navView.itemIconTintList = null
-        var states = Array(2){IntArray(1){0}}
+        var states = Array(2) { IntArray(1) { 0 } }
         states[0][0] = -android.R.attr.state_checked
         states[1][0] = android.R.attr.state_checked
 
-        var colors = IntArray(2){0}
-        colors[0]= R.color.colorPrimary
+        var colors = IntArray(2) { 0 }
+        colors[0] = R.color.colorPrimary
         colors[1] = R.color.colorWordBlack
         //设置选中颜色切换
         var csl = ColorStateList(states,colors)
@@ -78,22 +85,18 @@ class MainActivity : BaseVMActivity() {
     private val onNavigationItemSelectedListener = BottomNavigationView.OnNavigationItemSelectedListener { item ->
         when (item.itemId) {
             R.id.navigation_home -> {
-                supportActionBar?.title = "首页"
                 viewPager.setCurrentItem(0,false)
                 return@OnNavigationItemSelectedListener true
             }
             R.id.navigation_disc -> {
-                supportActionBar?.title = "发现"
                 viewPager.setCurrentItem(1,false)
                 return@OnNavigationItemSelectedListener true
             }
             R.id.navigation_shop -> {
-                supportActionBar?.title = "购物车"
                 viewPager.setCurrentItem(2,false)
                 return@OnNavigationItemSelectedListener true
             }
             R.id.navigation_mine -> {
-                supportActionBar?.title = "我的"
                 viewPager.setCurrentItem(3,false)
                 return@OnNavigationItemSelectedListener true
             }

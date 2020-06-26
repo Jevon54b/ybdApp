@@ -411,23 +411,26 @@
 			android:layout_height="37dp"
 			android:src="@mipmap/ic_kefu"/>
 		<ImageView
+			android:id="@+id/cartImg"
 			android:layout_marginStart="18dp"
 			android:layout_marginEnd="20dp"
 			android:layout_gravity="center_vertical"
 			android:layout_width="36dp"
 			android:layout_height="38dp"
-			android:src="@mipmap/ic_cart"/>
+			android:src="@mipmap/ic_cart" />
 
 		<TextView
+			android:id="@+id/addToCartText"
 			android:gravity="center"
 			android:layout_width="0dp"
 			android:layout_weight="1"
 			android:layout_height="match_parent"
 			android:text="加入购物车"
 			android:background="@drawable/back_yellow_text"
-			android:textColor="#fff"
-			/>
+			android:textColor="#fff" />
+
 		<TextView
+			android:id="@+id/buyText"
 			android:gravity="center"
 			android:layout_width="0dp"
 			android:layout_weight="1"

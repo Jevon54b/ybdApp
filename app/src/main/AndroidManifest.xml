@@ -22,9 +22,7 @@
 			android:launchMode="singleTask">
 
 		</activity>
-		<activity
-			android:name=".modules.user.activity.LoginActivity"
-			android:label="登录">
+		<activity android:name=".modules.user.activity.LoginActivity">
 			<intent-filter>
 				<action android:name="android.intent.action.MAIN" />
 				<category android:name="android.intent.category.LAUNCHER" />
@@ -40,7 +38,9 @@
 		</activity>
 		<activity android:name=".modules.disc.activity.ArticleListActivity"></activity>
 		<activity android:name=".modules.main.activity.MedListActivity"></activity>
-		<activity android:name=".modules.main.activity.MedDetailActivity">
+		<activity
+			android:name=".modules.main.activity.MedDetailActivity"
+			android:theme="@style/GreenStatusBarColorTheme">
 
 		</activity>
 		<activity

@@ -1,6 +1,7 @@
 package com.bingo.ybd.modules.main.custom
 
 import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -9,7 +10,9 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bingo.ybd.R
 import com.bingo.ybd.base.adapter.BaseRecyclerAdapter
+import com.bingo.ybd.constant.Constant
 import com.bingo.ybd.data.model.MedBrief
+import com.bingo.ybd.modules.main.activity.MedDetailActivity
 import com.bumptech.glide.Glide
 
 class MedShowAdpter(val context: Context) :
@@ -33,6 +36,11 @@ class MedShowAdpter(val context: Context) :
         holder.medSalesNumText.text = "销量:${medData.salesNum}"
 
         //监听点击事件
+        holder.itemView.setOnClickListener {
+            val intent = Intent(context, MedDetailActivity::class.java)
+            intent.putExtra(Constant.KEY_MED_ID, medData.id)
+            context.startActivity(intent)
+        }
     }
 
 

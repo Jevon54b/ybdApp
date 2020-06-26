@@ -7,7 +7,6 @@ import androidx.fragment.app.FragmentPagerAdapter
 import com.bingo.ybd.R
 import com.bingo.ybd.modules.mine.fragment.CurrentOrderFragment
 import com.bingo.ybd.modules.mine.fragment.OldOrderFragment
-import com.bingo.ybd.modules.mine.fragment.PlaceholderFragment
 
 
 private val TAB_TITLES = arrayOf(
