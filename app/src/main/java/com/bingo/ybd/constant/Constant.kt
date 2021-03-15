@@ -2,6 +2,9 @@ package com.bingo.ybd.constant
 
 object Constant {
 
+    const val RESPONSE_SUCCESS = "200"
+    const val RESPONSE_FAILED = "400"
+
     const val REQUEST_CODE_FOR_REGISTER = 1
     const val RESULT_CODE_TO_LOGIN = 1
 

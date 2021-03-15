@@ -14,6 +14,7 @@ import com.fondesa.recyclerviewdivider.dividerBuilder
 
 class OrderAdapter(private val mContext: Context) :
     BaseRecyclerAdapter<Order, OrderAdapter.ViewHolder>() {
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view = LayoutInflater.from(mContext).inflate(R.layout.item_order, parent, false)
         return ViewHolder(view)

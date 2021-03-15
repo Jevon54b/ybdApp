@@ -54,7 +54,7 @@ object Repository {
 
     suspend fun getFinishedOrderList(userId: Int): BaseResponse<List<Order>> = apiService.getFinishedOrderList(userId)
 
-    suspend fun getArticleList(): BaseResponse<Article> = apiService.getArticleList()
+    suspend fun getArticleList(): BaseResponse<List<Article>> = apiService.getArticleList()
 
     suspend fun getArticleDetail(articleId: Int): BaseResponse<Article> =
         apiService.getArticleDetail(articleId)
@@ -84,4 +84,5 @@ object Repository {
         return photoList[randomIndex]
     }
 
+    suspend fun getSupportInfo():BaseResponse<SupportInfo> = apiService.getSupportInfo()
 }

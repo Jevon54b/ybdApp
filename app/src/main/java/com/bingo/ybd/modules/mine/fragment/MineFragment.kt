@@ -12,6 +12,7 @@ import com.bingo.ybd.base.viewmodel.BaseViewModel
 import com.bingo.ybd.config.Settings
 import com.bingo.ybd.modules.main.vm.MainViewModel
 import com.bingo.ybd.modules.mine.activity.OrderListActivity
+import com.bingo.ybd.modules.mine.activity.SupportActivity
 import kotlinx.android.synthetic.main.fragment_mine.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
@@ -30,6 +31,10 @@ class MineFragment: BaseVMFragment() {
     override fun initView() {
         myOrderView.setOnClickListener {
             var intent = Intent(requireContext(), OrderListActivity::class.java)
+            startActivity(intent)
+        }
+        supportView.setOnClickListener {
+            var intent = Intent(requireContext(), SupportActivity::class.java)
             startActivity(intent)
         }
     }

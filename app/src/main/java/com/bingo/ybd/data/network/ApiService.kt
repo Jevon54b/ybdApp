@@ -89,7 +89,7 @@ interface ApiService {
     /* 发现模块 */
 
     @GET("disc/getArticleList.do")
-    suspend fun getArticleList(): BaseResponse<Article>
+    suspend fun getArticleList(): BaseResponse<List<Article>>
 
     @FormUrlEncoded
     @POST("disc/getArticleDetail.do")
@@ -107,4 +107,8 @@ interface ApiService {
         @Field("content") content: String,
         @Field("username") username: String
     ): BaseResponse<List<Comment>>
+
+
+    @GET("message/getSupportInfo.do")
+    suspend fun getSupportInfo():BaseResponse<SupportInfo>
 }

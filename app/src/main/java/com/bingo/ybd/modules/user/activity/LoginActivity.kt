@@ -50,7 +50,7 @@ class LoginActivity : BaseVMActivity(){
                 it.data.let {
                     Settings.Account.apply {
                         userId = it.id
-                        userName = it.name ?: ""
+                        userName = it.nick ?: ""
                         userMoney = it.money
                         userPassword = it.password
                     }

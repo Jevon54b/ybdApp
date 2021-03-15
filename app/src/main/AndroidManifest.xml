@@ -49,6 +49,8 @@
 
 		</activity>
 
+		<activity android:name=".modules.mine.activity.SupportActivity"/>
+
 		<!-- 访问http连接 -->
 		<uses-library
 			android:name="org.apache.http.legacy"

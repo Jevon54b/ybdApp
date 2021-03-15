@@ -65,6 +65,6 @@ class HomeFragment:BaseVMFragment() {
 
     override fun onDestroy() {
         super.onDestroy()
-        banner.destroy()
+        banner?.destroy()
     }
 }
