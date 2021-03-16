@@ -11,13 +11,14 @@ import com.bingo.ybd.R
 import com.bingo.ybd.base.adapter.BaseRecyclerAdapter
 import com.bingo.ybd.data.model.Comment
 import com.bingo.ybd.data.repository.Repository
+import com.bingo.ybd.util.StringUtils
 import com.bumptech.glide.Glide
 import java.text.SimpleDateFormat
 import java.util.*
 
 
-class CommentAdpter(val mContext: Context) :
-    BaseRecyclerAdapter<Comment, CommentAdpter.ViewHolder>() {
+class CommentAdapter(val mContext: Context) :
+    BaseRecyclerAdapter<Comment, CommentAdapter.ViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view = LayoutInflater.from(mContext).inflate(R.layout.item_comment, parent, false)
         return ViewHolder(view)
@@ -33,10 +34,8 @@ class CommentAdpter(val mContext: Context) :
             .into(holder.commenterImg)
         holder.commentText.text = data.content
         holder.commenterNameText.text = data.commenter
-        var time = Date()
-        time.time = data.releaseTime.toString().toLong()
-        val str = SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(time)
-        holder.commentTimeText.text = str
+        val format = StringUtils.convertTimeStampToFormat(data.releaseTime)
+        holder.commentTimeText.text = format
     }
 
     class ViewHolder(mView:View):RecyclerView.ViewHolder(mView){

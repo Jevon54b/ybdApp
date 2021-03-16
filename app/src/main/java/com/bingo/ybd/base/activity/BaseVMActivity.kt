@@ -60,10 +60,12 @@ abstract class BaseVMActivity : AppCompatActivity(){
     }
 
     open fun showLoading() {
-         loadingPopup = MaterialDialog(this).show{
+        if (!::loadingPopup.isInitialized || !loadingPopup.isShowing) {
+            loadingPopup = MaterialDialog(this).show {
                 customView(R.layout.popup_loading)
                 lifecycleOwner(this@BaseVMActivity)
-         }
+            }
+        }
     }
 
     open fun dismissLoading() {

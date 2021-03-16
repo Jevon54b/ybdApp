@@ -12,6 +12,7 @@ object Settings {
     //Preference代理存储用户信息
     object Account {
         var userId by Preference(Constant.KEY_USER_ID, "")
+        var userPhone by Preference(Constant.KEY_PHONE, "")
         var userName by Preference(Constant.KEY_USER_NICK, "")
         var userPassword by Preference(Constant.KEY_PASSWORD, "")
         var userMoney by Preference(Constant.KEY_USER_MONEY, "")

@@ -19,6 +19,7 @@ class DiscFragment : BaseVMFragment() {
 
     lateinit var articleList: List<Article>
     private val discViewModel : DiscViewModel by viewModel()
+    private lateinit var articleAdapter: ArticleAdapter
 
     override fun getLayoutRes(): Int {
         return R.layout.fragment_disc
@@ -29,16 +30,17 @@ class DiscFragment : BaseVMFragment() {
     }
 
     override fun initView() {
-        var adapter = ArticleAdapter(requireContext())
-        recyclerView.adapter = adapter
+        articleAdapter = ArticleAdapter(requireContext())
+        recyclerView.adapter = articleAdapter
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
     }
 
     override fun initData() {
         discViewModel.getArticleList().observe(this, Observer {
-            when(it.status){
-                SuccessState
-            }
+            articleAdapter.addAll(it.data)
+            articleAdapter.notifyDataSetChanged()
         })
     }
+
+
 }

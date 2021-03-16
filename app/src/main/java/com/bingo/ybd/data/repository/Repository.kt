@@ -64,7 +64,7 @@ object Repository {
 
     suspend fun addComment(
         articleId: Int, userId: Int, content: String, username: String
-    ): BaseResponse<List<Comment>> = apiService.addComment(articleId, userId, content, username)
+    ): BaseResponse<Any> = apiService.addComment(articleId, userId, content, username)
 
     fun saveUserInfo(userInfo: UserInfo) {
 

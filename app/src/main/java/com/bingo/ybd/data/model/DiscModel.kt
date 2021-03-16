@@ -8,7 +8,7 @@ data class Comment(
     @SerializedName("article_id") val articleId: String,
     val commenter: String,
     val content: String,
-    @SerializedName("realease_time") val releaseTime: Timestamp,
+    @SerializedName("realease_time") val releaseTime: String,
     @SerializedName("commenter_id") val commenterId: String
 )
 

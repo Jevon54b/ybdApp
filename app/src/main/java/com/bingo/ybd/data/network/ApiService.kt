@@ -106,7 +106,7 @@ interface ApiService {
         @Field("user_id") userId: Int,
         @Field("content") content: String,
         @Field("username") username: String
-    ): BaseResponse<List<Comment>>
+    ): BaseResponse<Any>
 
 
     @GET("message/getSupportInfo.do")

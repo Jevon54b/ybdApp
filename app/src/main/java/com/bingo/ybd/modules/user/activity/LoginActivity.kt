@@ -36,6 +36,14 @@ class LoginActivity : BaseVMActivity(){
         }
     }
 
+    override fun initData() {
+        //show saved password for next login
+        if (!Settings.Account.userPassword.isNullOrEmpty()){
+            phoneEdit.setText(Settings.Account.userPhone)
+            passwordEdit.setText(Settings.Account.userPassword)
+        }
+    }
+
     private fun login(){
         val phone = phoneEdit.text.toString()
         val password = passwordEdit.text.toString()
@@ -49,6 +57,7 @@ class LoginActivity : BaseVMActivity(){
             Observer {
                 it.data.let {
                     Settings.Account.apply {
+                        userPhone = phone
                         userId = it.id
                         userName = it.nick ?: ""
                         userMoney = it.money

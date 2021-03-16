@@ -17,6 +17,7 @@ class CartViewModel(private val repository: Repository) : BaseViewModel() {
         launch {
             val response = repository.getMedCartList(userId)
             cartLiveData.value = response.data
+            return@launch response
         }
     }
 
@@ -25,14 +26,17 @@ class CartViewModel(private val repository: Repository) : BaseViewModel() {
             repository.addMedToCurOrder(userId, medId)
             val response = repository.getMedCartList(userId)
             cartLiveData.value = response.data
+            return@launch response
         }
     }
 
     fun subMedCountAndGetOrderInfo(userId: Int, mOrderId: Int) {
         launch {
+            //todo 前面出现404怎么办？返回值只有一个
             repository.subMedCount(mOrderId, userId)
             val response = repository.getMedCartList(userId)
             cartLiveData.value = response.data
+            return@launch response
         }
     }
 

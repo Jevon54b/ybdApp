@@ -1,37 +1,54 @@
 package com.bingo.ybd.modules.disc.activity
 
+import android.content.Intent
 import android.text.InputType
-import android.util.Log
-import androidx.core.view.get
+import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.afollestad.materialdialogs.LayoutMode
 import com.afollestad.materialdialogs.MaterialDialog
 import com.afollestad.materialdialogs.bottomsheets.BottomSheet
+import com.afollestad.materialdialogs.input.getInputField
 import com.afollestad.materialdialogs.input.input
 import com.afollestad.materialdialogs.lifecycle.lifecycleOwner
 import com.bingo.ybd.R
 import com.bingo.ybd.base.activity.BaseVMActivity
 import com.bingo.ybd.base.viewmodel.BaseViewModel
+import com.bingo.ybd.config.Settings
+import com.bingo.ybd.constant.Constant
 import com.bingo.ybd.data.model.Comment
 import com.bingo.ybd.ext.successToast
-import com.bingo.ybd.modules.disc.custom.CommentAdpter
+import com.bingo.ybd.modules.disc.custom.CommentAdapter
+import com.bingo.ybd.modules.disc.vm.DiscViewModel
+import com.bingo.ybd.util.StringUtils
+import com.bumptech.glide.Glide
 import com.fondesa.recyclerviewdivider.dividerBuilder
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import kotlinx.android.synthetic.main.activity_article_detail.*
-
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 
 class ArticleDetailActivity:BaseVMActivity(){
 
-    val TAG  = "ArticleDetailActivity"
+    companion object{
+        private const val TAG  = "ArticleDetailActivity"
 
-    lateinit var commentList: List<Comment>
+    }
 
     override fun getLayoutId(): Int {
         return R.layout.activity_article_detail
     }
+
+    override fun getViewModel(): BaseViewModel {
+        return discViewModel
+    }
+
+    private val discViewModel : DiscViewModel by viewModel()
+
+    private lateinit var commentAdapter: CommentAdapter
+
+    private var articleId: String = "0"
 
     fun RecyclerView.matchHeight(itemNum:Int){
 //        if (itemNum!=0){
@@ -40,9 +57,8 @@ class ArticleDetailActivity:BaseVMActivity(){
     }
 
     override fun initView() {
-        initDatas()
-        var adpter = CommentAdpter(this)
-        recyclerView.adapter = adpter
+        commentAdapter = CommentAdapter(this)
+        recyclerView.adapter = commentAdapter
         recyclerView.layoutManager = LinearLayoutManager(this)
 
         this.dividerBuilder()
@@ -58,61 +74,31 @@ class ArticleDetailActivity:BaseVMActivity(){
                 ) { _, text ->
                     successToast("Input: $text")
                 }
-                positiveButton(R.string.comment_publish)
+                positiveButton(R.string.comment_publish){
+                    discViewModel.addComment(articleId.toInt(),Settings.Account.userId.toInt(),it.getInputField().text.toString(),Settings.Account.userName)
+                }
                 negativeButton(R.string.comment_cancel)
                 lifecycleOwner(this@ArticleDetailActivity)
             }
         }
     }
 
-    fun initDatas(){
-        var json = "[\n" +
-                "        {\n" +
-                "            \"id\": \"1\",\n" +
-                "            \"article_id\": \"2\",\n" +
-                "            \"commenter\": \"啊哈哈\",\n" +
-                "            \"content\": \"哈哈哈\",\n" +
-                "            \"realease_time\": 1577515400000,\n" +
-                "            \"commenter_id\": \"5\"\n" +
-                "        },\n" +
-                "        {\n" +
-                "            \"id\": \"2\",\n" +
-                "            \"article_id\": \"2\",\n" +
-                "            \"commenter\": \"嘻嘻嘻嘻\",\n" +
-                "            \"content\": \"嗯嗯嗯呃\",\n" +
-                "            \"realease_time\": 1577515436000,\n" +
-                "            \"commenter_id\": \"1\"\n" +
-                "        },\n" +
-                "        {\n" +
-                "            \"id\": \"13\",\n" +
-                "            \"article_id\": \"2\",\n" +
-                "            \"commenter\": \"cx\",\n" +
-                "            \"content\": \"谢谢陈医生\",\n" +
-                "            \"realease_time\": 1577589952000,\n" +
-                "            \"commenter_id\": \"9\"\n" +
-                "        },\n" +
-                "        {\n" +
-                "            \"id\": \"23\",\n" +
-                "            \"article_id\": \"2\",\n" +
-                "            \"commenter\": \"1\",\n" +
-                "            \"content\": \"嗯嗯\",\n" +
-                "            \"realease_time\": 1589811778000,\n" +
-                "            \"commenter_id\": \"1\"\n" +
-                "        },\n" +
-                "           {\n" +
-                    "            \"id\": \"23\",\n" +
-                            "            \"article_id\": \"2\",\n" +
-                            "            \"commenter\": \"1\",\n" +
-                            "            \"content\": \"嗯嗯\",\n" +
-                            "            \"realease_time\": 1589811778000,\n" +
-                            "            \"commenter_id\": \"1\"\n" +
-                            "        }\n" +
-                "    ]"
-        var gson = Gson()
-        commentList = gson.fromJson(json, object : TypeToken<List<Comment>>() {}.type)
+    override fun initData() {
+        articleId = intent?.getStringExtra(Constant.KEY_ARTICLE_ID)?:"0"
+        discViewModel.getArticleDetail(articleId.toInt()).observe(this, Observer {
+            val article = it.data
+            articleTitleText.text = article.title
+            authorNameText.text = article.author
+            publishTimeText.text = StringUtils.convertTimeStampToFormat(article.releaseTime)
+            Glide.with(this).load(article.pic).into(articleImg)
+            contentText.text = article.content
+        })
+        discViewModel.commentLiveData.observe(this, Observer{
+            commentAdapter.replaceAll(it)
+            commentAdapter.notifyDataSetChanged()
+        })
+        discViewModel.getArticleCommentList(articleId.toInt())
     }
 
-    override fun getViewModel(): BaseViewModel {
-        return BaseViewModel()
-    }
+
 }

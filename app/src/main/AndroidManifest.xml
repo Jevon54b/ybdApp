@@ -36,7 +36,6 @@
 			android:theme="@style/TransparentStatusBarNoActionBar">
 
 		</activity>
-		<activity android:name=".modules.disc.activity.ArticleListActivity"></activity>
 		<activity android:name=".modules.main.activity.MedListActivity"></activity>
 		<activity
 			android:name=".modules.main.activity.MedDetailActivity"
