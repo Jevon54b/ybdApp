@@ -12,6 +12,7 @@ import com.bingo.ybd.data.model.MedDetail
 import com.bingo.ybd.data.model.MedTypeMaps
 import com.bingo.ybd.ext.successToast
 import com.bingo.ybd.modules.main.vm.MainViewModel
+import com.bingo.ybd.modules.mine.activity.SupportActivity
 import com.bumptech.glide.Glide
 import kotlinx.android.synthetic.main.activity_med_detail.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -47,6 +48,11 @@ class MedDetailActivity:BaseVMActivity() {
             val intent = Intent(this, MainActivity::class.java)
             intent.putExtra(Constant.KEY_CART_PAGE_INDEX, 2)
             intent.flags = (Intent.FLAG_ACTIVITY_CLEAR_TOP)
+            startActivity(intent)
+        }
+
+        supportImg.setOnClickListener {
+            val intent = Intent(this,SupportActivity::class.java)
             startActivity(intent)
         }
     }

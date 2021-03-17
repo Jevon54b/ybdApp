@@ -82,7 +82,7 @@ class ShopFragment: BaseVMFragment() {
                 noItemImg.visibility = View.GONE
             }
             if (cartBottomView.visibility == View.INVISIBLE) {
-                cartBottomView.visibility == View.VISIBLE
+                cartBottomView.visibility = View.VISIBLE
             }
             cartItemAdapter.replaceAll(data)
             cartItemAdapter.notifyDataSetChanged()

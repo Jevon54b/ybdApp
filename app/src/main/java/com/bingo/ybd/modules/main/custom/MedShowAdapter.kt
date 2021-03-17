@@ -15,8 +15,8 @@ import com.bingo.ybd.data.model.MedBrief
 import com.bingo.ybd.modules.main.activity.MedDetailActivity
 import com.bumptech.glide.Glide
 
-class MedShowAdpter(val context: Context) :
-    BaseRecyclerAdapter<MedBrief, MedShowAdpter.ViewHolder>() {
+class MedShowAdapter(val context: Context) :
+    BaseRecyclerAdapter<MedBrief, MedShowAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view = LayoutInflater.from(context).inflate(R.layout.item_med_show, parent, false)

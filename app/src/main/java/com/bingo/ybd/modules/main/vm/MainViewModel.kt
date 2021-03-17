@@ -11,6 +11,7 @@ import com.bingo.ybd.data.repository.Repository
 class MainViewModel(val repository: Repository) : BaseViewModel() {
 
     val mUserInfo = MutableLiveData<UserInfo>()
+    val medListData = MutableLiveData<List<MedBrief>>()
 
     companion object {
         const val TAG = "MainViewModel"
@@ -36,6 +37,22 @@ class MainViewModel(val repository: Repository) : BaseViewModel() {
             : LiveData<BaseResponse<List<MedInOrder>>> = emit {
         repository.addMedToCurOrder(userId, medId)
         repository.getMedCartList(userId)
+    }
+
+    fun getMedListByTypeId(typeId: Int,sortFlag: Int){
+        launch {
+            val response = repository.getMedListByTypeId(typeId,sortFlag)
+            medListData.value = response.data
+            response
+        }
+    }
+
+    fun searchMed(keyword: String, sortFlag: Int){
+        launch {
+            val response = repository.searchMed(keyword,sortFlag)
+            medListData.value = response.data
+            response
+        }
     }
 
 

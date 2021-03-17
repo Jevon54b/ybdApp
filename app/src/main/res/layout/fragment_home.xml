@@ -16,6 +16,7 @@
 		app:cardCornerRadius="12dp"
 		app:cardElevation="8dp">
 		<EditText
+			android:id="@+id/searchEdit"
 			android:layout_width="match_parent"
 			android:layout_height="match_parent"
 			android:background="@drawable/back_search_edit"
@@ -46,6 +47,7 @@
 		android:layout_width="320dp"
 		android:layout_height="wrap_content">
 		<LinearLayout
+			android:id="@+id/btn_fever"
 			android:orientation="vertical"
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content">
@@ -65,6 +67,7 @@
 
 
 		<LinearLayout
+			android:id="@+id/btn_cough"
 			android:layout_centerHorizontal="true"
 			android:orientation="vertical"
 			android:layout_width="wrap_content"
@@ -84,6 +87,7 @@
 		</LinearLayout>
 
 		<LinearLayout
+			android:id="@+id/btn_stomach"
 			android:layout_alignParentRight="true"
 			android:orientation="vertical"
 			android:layout_width="wrap_content"
@@ -110,6 +114,7 @@
 		android:layout_width="320dp"
 		android:layout_height="wrap_content">
 		<LinearLayout
+			android:id="@+id/btn_sexes"
 			android:orientation="vertical"
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content">
@@ -129,6 +134,7 @@
 
 
 		<LinearLayout
+			android:id="@+id/btn_children"
 			android:layout_centerHorizontal="true"
 			android:orientation="vertical"
 			android:layout_width="wrap_content"
@@ -148,6 +154,7 @@
 		</LinearLayout>
 
 		<LinearLayout
+			android:id="@+id/btn_daily"
 			android:layout_alignParentRight="true"
 			android:orientation="vertical"
 			android:layout_width="wrap_content"
@@ -174,6 +181,7 @@
 		android:layout_width="320dp"
 		android:layout_height="wrap_content">
 		<LinearLayout
+			android:id="@+id/btn_face"
 			android:orientation="vertical"
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content">
@@ -193,6 +201,7 @@
 
 
 		<LinearLayout
+			android:id="@+id/btn_twist"
 			android:layout_centerHorizontal="true"
 			android:orientation="vertical"
 			android:layout_width="wrap_content"
@@ -212,6 +221,7 @@
 		</LinearLayout>
 
 		<LinearLayout
+			android:id="@+id/btn_skin"
 			android:layout_alignParentRight="true"
 			android:orientation="vertical"
 			android:layout_width="wrap_content"
@@ -238,6 +248,7 @@
 		android:layout_width="320dp"
 		android:layout_height="wrap_content">
 		<LinearLayout
+			android:id="@+id/btn_tonic"
 			android:orientation="vertical"
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content">
@@ -257,6 +268,7 @@
 
 
 		<LinearLayout
+			android:id="@+id/btn_vitamin"
 			android:layout_centerHorizontal="true"
 			android:orientation="vertical"
 			android:layout_width="wrap_content"
@@ -276,6 +288,7 @@
 		</LinearLayout>
 
 		<LinearLayout
+			android:id="@+id/btn_prescript"
 			android:layout_alignParentRight="true"
 			android:orientation="vertical"
 			android:layout_width="wrap_content"

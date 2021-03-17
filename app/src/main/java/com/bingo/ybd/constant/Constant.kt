@@ -19,6 +19,10 @@ object Constant {
     const val KEY_MED_ID = "med_id"
     const val KEY_TYPE_ID = "type_id"
     const val KEY_ARTICLE_ID = "article_id"
+    const val KEY_MED_LIST_CODE = "med_list_code"
+    const val VALUE_TYPE_LIST = 0
+    const val VALUE_SEARCH_LIST = 1
+    const val KEY_SEARCH_WORD = "search_word"
 
     const val KEY_LOAD_CART = "need_load_cart"
     const val KEY_CART_LIST = "cart_med_list"
