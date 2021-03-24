@@ -1,5 +1,7 @@
 package com.bingo.ybd.modules.shop
 
+import android.app.Activity
+import android.content.Intent
 import android.widget.EditText
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -12,11 +14,17 @@ import com.bingo.ybd.base.activity.BaseVMActivity
 import com.bingo.ybd.base.viewmodel.BaseViewModel
 import com.bingo.ybd.config.Settings
 import com.bingo.ybd.constant.Constant
+import com.bingo.ybd.constant.Constant.ARQC_ORDER_ADDRESS
+import com.bingo.ybd.constant.Constant.KEY_ADDRESS_LIST_TYPE
+import com.bingo.ybd.constant.Constant.VALUE_FROM_POST_ORDER
+import com.bingo.ybd.data.model.AddressInfo
 import com.bingo.ybd.data.model.MedBrief
 import com.bingo.ybd.data.model.MedInOrder
 import com.bingo.ybd.data.model.UserOrderInfo
 import com.bingo.ybd.ext.errorToast
 import com.bingo.ybd.ext.successToast
+import com.bingo.ybd.modules.mine.activity.AddressListActivity
+import com.bingo.ybd.modules.mine.vm.MineViewModel
 import com.bingo.ybd.modules.shop.custom.MedPostItemAdapter
 import com.bingo.ybd.modules.shop.vm.CartViewModel
 import com.google.gson.Gson
@@ -33,6 +41,7 @@ class PostOrderActivity : BaseVMActivity() {
     lateinit var postItemAdapter: MedPostItemAdapter
 
     private val cartViewModel: CartViewModel by viewModel()
+    private val mineViewModel: MineViewModel by viewModel()
 
     override fun getLayoutId(): Int = R.layout.activity_post_order
 
@@ -50,7 +59,9 @@ class PostOrderActivity : BaseVMActivity() {
         }
 
         editInfoView.setOnClickListener {
-            showEditDialog()
+            val intent = Intent(this,AddressListActivity::class.java)
+            intent.putExtra(KEY_ADDRESS_LIST_TYPE, VALUE_FROM_POST_ORDER)
+            startActivityForResult(intent,ARQC_ORDER_ADDRESS)
         }
 
         postOrderBtn.setOnClickListener {
@@ -80,6 +91,18 @@ class PostOrderActivity : BaseVMActivity() {
         orderMedPrice = medList[0].totalSum
         orderMedPriceText.text = "￥$orderMedPrice"
         totalPriceText.text = "￥$orderMedPrice"
+
+        mineViewModel.getLastUseAddressInfo().observe(this, Observer {
+            if(it.status == "200"){
+                nameText.text = it.data.userName
+                phoneText.text = it.data.phone
+                addressText.text = it.data.address
+                UserOrderInfo.name = it.data.userName
+                UserOrderInfo.phone = it.data.phone
+                UserOrderInfo.address = it.data.address
+                UserOrderInfo.addressId = it.data.id
+            }
+        })
     }
 
     private fun onPostOrderBtnClick() {
@@ -98,31 +121,20 @@ class PostOrderActivity : BaseVMActivity() {
         })
     }
 
-    private fun showEditDialog() {
-        MaterialDialog(this).show {
-            title(R.string.title_deliver_info)
-            customView(
-                R.layout.dialog_deliver_info_edit,
-                scrollable = true,
-                horizontalPadding = true
-            )
-            nameEdit.setText(UserOrderInfo.name)
-            phoneEdit.setText(UserOrderInfo.phone)
-            addressEdit.setText(UserOrderInfo.address)
-
-            positiveButton(R.string.ensure_text) {
-                this@PostOrderActivity.nameText.text = nameEdit.text.toString()
-                this@PostOrderActivity.phoneText.text = phoneEdit.text.toString()
-                this@PostOrderActivity.addressText.text = addressEdit.text.toString()
-                UserOrderInfo.name = nameEdit.text.toString()
-                UserOrderInfo.phone = phoneEdit.text.toString()
-                UserOrderInfo.address = addressEdit.text.toString()
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if(requestCode == ARQC_ORDER_ADDRESS && resultCode == Activity.RESULT_OK){
+            data?.getParcelableExtra<AddressInfo>(Constant.KEY_ADDRESS_INFO)?.let {
+                nameText.text = it.userName
+                phoneText.text = it.phone
+                addressText.text = it.address
+                UserOrderInfo.name = it.userName
+                UserOrderInfo.phone = it.phone
+                UserOrderInfo.address = it.address
+                UserOrderInfo.addressId = it.id
             }
-            negativeButton(android.R.string.cancel)
-            lifecycleOwner(this@PostOrderActivity)
         }
     }
-
 
 
 }

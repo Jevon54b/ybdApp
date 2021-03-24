@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:orientation="vertical" android:layout_width="match_parent"
+	android:layout_height="match_parent">
+	<RelativeLayout
+		android:id="@+id/layout10"
+		android:background="#fff"
+		android:layout_width="match_parent"
+		android:layout_height="56dp">
+		<TextView
+			android:layout_centerVertical="true"
+			android:layout_marginStart="18dp"
+			android:layout_gravity="center_vertical"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:text="我的收货地址"
+			android:textSize="18sp"
+			android:textColor="@color/colorWordBlack"/>
+
+		<TextView
+			android:id="@+id/addAddressButton"
+			android:layout_alignParentRight="true"
+			android:layout_centerVertical="true"
+			android:layout_marginEnd="18dp"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:text="新增地址"/>
+	</RelativeLayout>
+
+	<androidx.recyclerview.widget.RecyclerView
+		android:layout_below="@id/layout10"
+		android:id="@+id/addressRecyclerView"
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"
+		/>
+
+	<TextView
+		android:id="@+id/noItemText"
+		android:layout_centerInParent="true"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:text="暂无可用的收货地址"
+		android:textSize="16sp"
+		android:visibility="gone"/>
+
+</RelativeLayout>

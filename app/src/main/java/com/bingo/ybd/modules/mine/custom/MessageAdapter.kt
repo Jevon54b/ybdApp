@@ -15,8 +15,8 @@ class MessageAdapter(private val mContext:Context)
     : BaseRecyclerAdapter<Message, RecyclerView.ViewHolder>(){
 
     companion object {
-        private const val MSG_TYPE_FROM_SUPPORT =  0;
-        private const val MSG_TYPE_FROM_USER = 1;
+        private const val MSG_TYPE_FROM_SUPPORT =  1;
+        private const val MSG_TYPE_FROM_USER = 0;
     }
 
     private var mInflater:LayoutInflater = LayoutInflater.from(mContext);

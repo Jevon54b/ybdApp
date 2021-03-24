@@ -46,7 +46,8 @@ class CartViewModel(private val repository: Repository) : BaseViewModel() {
             userOrderInfo.phone,
             userOrderInfo.phone,
             userOrderInfo.address,
-            userOrderInfo.speed
+            userOrderInfo.speed,
+            userOrderInfo.addressId
         )
     }
 }

@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent">
+
+	<FrameLayout
+		android:id="@+id/layout12"
+		android:layout_width="match_parent"
+		android:layout_height="56dp"
+		android:background="#fff"
+		app:layout_constraintTop_toTopOf="parent">
+
+		<TextView
+			android:id="@+id/addressPageTitleText"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_gravity="center_vertical"
+			android:layout_marginStart="18dp"
+			android:text=""
+			android:textColor="@color/colorWordBlack"
+			android:textSize="18sp" />
+	</FrameLayout>
+
+	<TextView
+		android:id="@+id/nameLabel"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_marginStart="16dp"
+		android:text="联系人"
+		android:textColor="@color/colorWordBlack"
+		android:textSize="18sp"
+		android:textStyle="bold"
+		app:layout_constraintStart_toStartOf="parent"
+		app:layout_constraintTop_toBottomOf="@id/underline1"
+		app:layout_constraintBottom_toTopOf="@id/underline2"
+		/>
+
+	<EditText
+		android:id="@+id/userNameEdit"
+		android:layout_width="250dp"
+		android:layout_height="40dp"
+		android:layout_marginStart="24dp"
+		android:background="@null"
+		app:layout_constraintTop_toBottomOf="@id/underline1"
+		app:layout_constraintBottom_toTopOf="@id/underline2"
+		app:layout_constraintStart_toEndOf="@id/nameLabel"
+		android:hint="姓名"
+		android:singleLine="true"
+		android:textSize="16sp"
+		/>
+
+	<View
+		android:id="@+id/underline1"
+		android:layout_width="388dp"
+		android:layout_height="1dp"
+		android:background="@color/colorBackGray"
+		app:layout_constraintEnd_toEndOf="parent"
+		app:layout_constraintStart_toStartOf="parent"
+		app:layout_constraintTop_toBottomOf="@id/layout12" />
+
+	<View
+		android:id="@+id/underline2"
+		android:layout_width="388dp"
+		android:layout_height="1dp"
+		android:background="@color/colorBackGray"
+		app:layout_constraintEnd_toEndOf="parent"
+		app:layout_constraintStart_toStartOf="parent"
+		app:layout_constraintTop_toBottomOf="@id/layout12"
+		android:layout_marginTop="60dp"/>
+
+	<TextView
+		android:id="@+id/phoneLabel"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		app:layout_constraintStart_toStartOf="parent"
+		app:layout_constraintTop_toBottomOf="@id/underline2"
+		app:layout_constraintBottom_toTopOf="@id/underline3"
+		android:layout_marginStart="16dp"
+		android:text="电话"
+		android:inputType="number"
+		android:textColor="@color/colorWordBlack"
+		android:textSize="18sp"
+		android:textStyle="bold"/>
+
+	<EditText
+		android:id="@+id/phoneEdit"
+		android:layout_width="250dp"
+		android:layout_height="40dp"
+		android:background="@null"
+		app:layout_constraintTop_toBottomOf="@id/underline2"
+		app:layout_constraintBottom_toTopOf="@id/underline3"
+		app:layout_constraintStart_toStartOf="@id/userNameEdit"
+		android:hint="手机号码"
+		android:singleLine="true"
+		android:textSize="16sp"
+		/>
+	<View
+		android:id="@+id/underline3"
+		android:layout_width="388dp"
+		android:layout_height="1dp"
+		android:background="@color/colorBackGray"
+		app:layout_constraintEnd_toEndOf="parent"
+		app:layout_constraintStart_toStartOf="parent"
+		app:layout_constraintTop_toBottomOf="@id/underline2"
+		android:layout_marginTop="60dp"/>
+
+	<TextView
+		android:id="@+id/addressLabel"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		app:layout_constraintStart_toStartOf="parent"
+		app:layout_constraintTop_toBottomOf="@id/underline3"
+		app:layout_constraintBottom_toTopOf="@id/underline4"
+		android:layout_marginStart="16dp"
+		android:text="地址"
+		android:textColor="@color/colorWordBlack"
+		android:textSize="18sp"
+		android:textStyle="bold"/>
+
+	<EditText
+		android:id="@+id/chooseAddressText"
+		android:layout_width="250dp"
+		android:layout_height="40dp"
+		android:background="@null"
+		android:hint="点击选取收货地址"
+		android:singleLine="true"
+		android:textSize="16sp"
+		app:layout_constraintTop_toBottomOf="@id/underline3"
+		app:layout_constraintBottom_toTopOf="@id/underline4"
+		app:layout_constraintStart_toStartOf="@id/userNameEdit"
+		android:editable="false"
+		/>
+
+	<View
+		android:id="@+id/underline4"
+		android:layout_width="388dp"
+		android:layout_height="1dp"
+		android:background="@color/colorBackGray"
+		app:layout_constraintEnd_toEndOf="parent"
+		app:layout_constraintStart_toStartOf="parent"
+		app:layout_constraintTop_toBottomOf="@id/underline3"
+		android:layout_marginTop="60dp"/>
+
+	<Button
+		android:id="@+id/saveBtn"
+		android:layout_width="match_parent"
+		android:layout_margin="16dp"
+		android:layout_height="wrap_content"
+		app:layout_constraintTop_toBottomOf="@id/underline4"
+		android:text="保存"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

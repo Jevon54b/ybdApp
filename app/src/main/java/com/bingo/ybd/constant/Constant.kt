@@ -28,4 +28,18 @@ object Constant {
     const val KEY_CART_LIST = "cart_med_list"
 
     const val KEY_CART_PAGE_INDEX = "CART_PAGE_INDEX"
+
+    const val KEY_ADDRESS_INFO = "ADDRESS_INFO"
+
+    const val KEY_ADDRESS_DETAIL_TYPE = "ADDRESS_DETAIL_TYPE"
+    const val VALUE_ADDRESS_CREATE = "ADDRESS_CREATE"
+    const val VALUE_ADDRESS_UPDATE = "ADDRESS_UPDATE"
+
+    const val KEY_ADDRESS_LIST_TYPE = "ADDRESS_LIST_TYPE"
+    const val VALUE_FROM_POST_ORDER = "FROM_POST_ORDER"
+
+    //activity request code
+    const val ARQC_ADDRESS_INFO = 0
+
+    const val ARQC_ORDER_ADDRESS = 1
 }

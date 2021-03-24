@@ -106,6 +106,7 @@
 				android:layout_height="1px"/>
 
 			<LinearLayout
+				android:id="@+id/addressListView"
 				android:orientation="horizontal"
 				android:layout_width="match_parent"
 				android:layout_height="0dp"

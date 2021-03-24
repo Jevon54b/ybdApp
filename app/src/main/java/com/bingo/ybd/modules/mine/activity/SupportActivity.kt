@@ -64,11 +64,11 @@ class SupportActivity : BaseVMActivity(){
             val activity = sActivity.get()!!
             when(msg.what){
                 MSG_OPEN -> {
-                    activity.messageAdapter.add(Message("系统","成功连接客服",0,StringUtils.getCurrentTimeStr()))
+                    activity.messageAdapter.add(Message("系统","成功连接客服",-1,StringUtils.getCurrentTimeStr()))
                     activity.messageAdapter.notifyDataSetChanged()
                 }
                 MSG_CLOSE -> {
-                    activity.messageAdapter.add(Message("系统","客服断开连接，请退出重新连接",0,StringUtils.getCurrentTimeStr()))
+                    activity.messageAdapter.add(Message("系统","客服断开连接，请退出重新连接",-1,StringUtils.getCurrentTimeStr()))
                     activity.messageAdapter.notifyDataSetChanged()
                 }
                 MSG_MESSAGE -> {
@@ -79,7 +79,7 @@ class SupportActivity : BaseVMActivity(){
                     activity.messageAdapter.notifyDataSetChanged()
                 }
                 MSG_ERROR -> {
-                    activity.messageAdapter.add(Message("系统","连接由于未知原因断开，请退出重新连接",0,StringUtils.getCurrentTimeStr()))
+                    activity.messageAdapter.add(Message("系统","连接由于未知原因断开，请退出重新连接",-1,StringUtils.getCurrentTimeStr()))
                     activity.messageAdapter.notifyDataSetChanged()
                 }
                 else -> return
@@ -96,7 +96,7 @@ class SupportActivity : BaseVMActivity(){
                 if(TextUtils.isEmpty(msg)){
                     warningToast("内容为空,请输入")
                 }else{
-                    messageAdapter.add(Message(Settings.Account.userName,msg,1))
+                    messageAdapter.add(Message(Settings.Account.userName,msg,0))
                     hideKeyboard(sendMsgEdit)
                     sendMsgEdit.setText("")
                     sendMessageToSupport(msg)
@@ -148,11 +148,11 @@ class SupportActivity : BaseVMActivity(){
         }
     }
 
-    private fun linkSupport(supportId: Int) {
-        val uri = URI.create("ws://193.112.205.254:8080/ybd/WebSocketTest2/$supportId/1")
+    private fun linkSupport(supportId: String) {
+        val uri = URI.create("ws://193.112.205.254:8080/ybd/SupportWebSocket/$supportId/1")
         supportWSClient = object:WebSocketClient(uri){
             override fun onOpen(handshakedata: ServerHandshake?) {
-                Log.e(SupportActivity.TAG, "onOpen" )
+                this.send(Gson().toJson(Message("系统","用户已接入",-1,StringUtils.getCurrentTimeStr())))
                 msgHandler.sendEmptyMessage(MSG_OPEN)
             }
 
@@ -181,7 +181,7 @@ class SupportActivity : BaseVMActivity(){
     private fun sendMessageToSupport(msg: String) {
         val name = Settings.Account.userName
         val time = StringUtils.getCurrentTimeStr()
-        val msg = Message(name,msg,1,time)
+        val msg = Message(name,msg,0,time)
         supportWSClient?.send(Gson().toJson(msg))
     }
 

@@ -39,7 +39,8 @@ object Repository {
         userId: Int, medId: Int
     ): BaseResponse<Any> = apiService.addMedToCurOrder(userId, medId)
 
-    suspend fun getMedCartList(userId: Int): BaseResponse<List<MedInOrder>> = apiService.getMedCartList(userId)
+    suspend fun getMedCartList(userId: Int): BaseResponse<List<MedInOrder>> =
+        apiService.getMedCartList(userId)
 
     suspend fun subMedCount(
         medOrderId: Int, userId: Int
@@ -47,12 +48,14 @@ object Repository {
 
     suspend fun postOrder(
         userId: Int, userPhone: String,
-        userName: String, userAddress: String, speed: Int
-    ): BaseResponse<Any> = apiService.postOrder(userId, userPhone, userName, userAddress, speed)
+        userName: String, userAddress: String, speed: Int, addressId: Int
+    ): BaseResponse<Any> = apiService.postOrder(userId, userPhone, userName, userAddress, speed ,addressId)
 
-    suspend fun getStartingOrderList(userId: Int): BaseResponse<List<Order>> = apiService.getStartingOrderList(userId)
+    suspend fun getStartingOrderList(userId: Int): BaseResponse<List<Order>> =
+        apiService.getStartingOrderList(userId)
 
-    suspend fun getFinishedOrderList(userId: Int): BaseResponse<List<Order>> = apiService.getFinishedOrderList(userId)
+    suspend fun getFinishedOrderList(userId: Int): BaseResponse<List<Order>> =
+        apiService.getFinishedOrderList(userId)
 
     suspend fun getArticleList(): BaseResponse<List<Article>> = apiService.getArticleList()
 
@@ -84,5 +87,33 @@ object Repository {
         return photoList[randomIndex]
     }
 
-    suspend fun getSupportInfo():BaseResponse<SupportInfo> = apiService.getSupportInfo()
+    suspend fun getSupportInfo(): BaseResponse<SupportInfo> = apiService.getSupportInfo()
+
+    suspend fun getAddressInfoList(userId: String): BaseResponse<List<AddressInfo>> =
+        apiService.getAddressInfoList(userId)
+
+    suspend fun getLastUseAddressInfo(userId: String): BaseResponse<AddressInfo> =
+        apiService.getLastUseAddressInfo(userId)
+
+    suspend fun createAddressInfo(
+        userId: Int,
+        address: String,
+        phone: String,
+        userName: String,
+        latitude: Double,
+        longitude: Double
+    ): BaseResponse<Any> = apiService.createAddressInfo(
+        userId, address, phone, userName, latitude, longitude
+    )
+
+    suspend fun updateAddressInfo(
+        id: Int,
+        address: String,
+        phone: String,
+        userName: String,
+        latitude: Double,
+        longitude: Double
+    ): BaseResponse<Any> = apiService.updateAddressInfo(
+        id, address, phone, userName, latitude, longitude
+    )
 }

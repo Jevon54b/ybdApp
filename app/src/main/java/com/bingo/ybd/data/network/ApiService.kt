@@ -76,7 +76,8 @@ interface ApiService {
         @Field("user_phone") userPhone: String,
         @Field("user_name") userName: String,
         @Field("user_address") userAddress: String,
-        @Field("speed") speed: Int
+        @Field("speed") speed: Int,
+        @Field("address_id") addressId: Int
     ): BaseResponse<Any>
 
     @GET("order/getStartingOrderByUserId.do")
@@ -108,7 +109,42 @@ interface ApiService {
         @Field("username") username: String
     ): BaseResponse<Any>
 
+    /*
+       我的模块
+     */
 
     @GET("message/getSupportInfo.do")
     suspend fun getSupportInfo():BaseResponse<SupportInfo>
+
+    @POST("user/createAddressInfo.do")
+    @FormUrlEncoded
+    suspend fun createAddressInfo(
+        @Field("user_id") userId: Int,
+        @Field("address") address: String,
+        @Field("phone") phone: String,
+        @Field("user_name") userName: String,
+        @Field("latitude") latitude: Double,
+        @Field("longitude") longitude: Double
+    ):BaseResponse<Any>
+
+    @POST("user/updateAddressInfo.do")
+    @FormUrlEncoded
+    suspend fun updateAddressInfo(
+        @Field("id") id: Int,
+        @Field("address") address: String,
+        @Field("phone") phone: String,
+        @Field("user_name") userName: String,
+        @Field("latitude") latitude: Double,
+        @Field("longitude") longitude: Double
+    ):BaseResponse<Any>
+
+    @GET("user/getLastUseAddressInfo.do")
+    suspend fun getLastUseAddressInfo(
+        @Query("user_id")userId: String
+    ):BaseResponse<AddressInfo>
+
+    @GET("user/getAddressInfoList.do")
+    suspend fun getAddressInfoList(
+        @Query("user_id")userId: String
+    ):BaseResponse<List<AddressInfo>>
 }

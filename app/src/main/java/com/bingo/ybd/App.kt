@@ -2,6 +2,8 @@ package com.bingo.ybd
 
 import android.app.Application
 import android.content.ContextWrapper
+import com.baidu.mapapi.CoordType
+import com.baidu.mapapi.SDKInitializer
 import org.koin.android.ext.koin.androidContext
 import org.koin.android.ext.koin.androidFileProperties
 import org.koin.android.ext.koin.androidLogger
@@ -16,7 +18,8 @@ class App : Application() {
     override fun onCreate() {
         super.onCreate()
         mApplication = this
-
+        SDKInitializer.initialize(this);
+        SDKInitializer.setCoordType(CoordType.BD09LL);
         //启动器进行异步初始化
 //        TaskDispatcher.init(this)
 //        TaskDispatcher.createInstance()

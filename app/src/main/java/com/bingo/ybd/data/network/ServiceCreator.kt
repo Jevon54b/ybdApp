@@ -9,7 +9,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 object ServiceCreator {
 
     private const val TAG = "ServiceCreator"
-    private const val BASE_URL = "http://192.168.202.93:8080/ybd/"
+    private const val BASE_URL = "http://193.112.205.254:8080/ybd/"
     //test ip:192.168.202.93 , normal ip : 193.112.205.254
     private val retrofit: Retrofit
 

@@ -98,6 +98,7 @@ object UserOrderInfo {
     var phone: String = ""
     var address: String = ""
     var speed: Int = -1
+    var addressId: Int = 0
 }
 
 object MedTypeMaps {
